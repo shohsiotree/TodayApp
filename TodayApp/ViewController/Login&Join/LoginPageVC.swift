@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginPageVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
