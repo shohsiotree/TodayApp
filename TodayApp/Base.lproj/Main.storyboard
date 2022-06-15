@@ -1,30 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nUG-qB-GYU">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="LeeSeoyun.otf">
+            <string>LeeSeoyun</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Login PageVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginPageVC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginPageVC" customModule="TodayApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘                                                    까지" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Crt-ro-X8N">
+                                <rect key="frame" x="24" y="138" width="366" height="120"/>
+                                <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="yc8-P4-gnR">
+                                <rect key="frame" x="40" y="323" width="334" height="181"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lol-Gi-7uu">
+                                        <rect key="frame" x="0.0" y="0.0" width="23" height="18"/>
+                                        <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="18"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ePX-oI-38z">
+                                        <rect key="frame" x="0.0" y="43" width="334" height="35"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Rbc-Al-PIm">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="0il-lL-naq"/>
+                                                    <constraint firstAttribute="width" constant="35" id="P2O-1l-Qqr"/>
+                                                    <constraint firstAttribute="width" secondItem="Rbc-Al-PIm" secondAttribute="height" multiplier="1:1" id="Rc1-0Y-UxI"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wWi-sf-I11">
+                                                <rect key="frame" x="40" y="0.5" width="294" height="34"/>
+                                                <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHJ-2G-yds">
+                                        <rect key="frame" x="0.0" y="103" width="89" height="18"/>
+                                        <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9tc-TM-u0d">
+                                        <rect key="frame" x="0.0" y="146" width="334" height="35"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="T0T-0J-OaL">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="T0T-0J-OaL" secondAttribute="height" multiplier="1:1" id="48S-CQ-gSp"/>
+                                                    <constraint firstAttribute="height" constant="35" id="kqj-FO-SVs"/>
+                                                    <constraint firstAttribute="width" constant="35" id="xAL-0g-uhF"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hAu-e1-GuT">
+                                                <rect key="frame" x="40" y="0.5" width="294" height="34"/>
+                                                <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="9tc-TM-u0d" secondAttribute="trailing" id="Xfl-vO-e6R"/>
+                                    <constraint firstAttribute="trailing" secondItem="ePX-oI-38z" secondAttribute="trailing" id="tFs-qh-eSj"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Fd4-Tl-6mV">
+                                <rect key="frame" x="30" y="574" width="354" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZA-lr-4oa" customClass="EditButton" customModule="TodayApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="172" height="32"/>
+                                        <color key="backgroundColor" name="ButtonColor"/>
+                                        <color key="tintColor" name="textColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="회원가입">
+                                            <fontDescription key="titleFontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="18"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="roundButton" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l29-q1-WJp" customClass="EditButton" customModule="TodayApp" customModuleProvider="target">
+                                        <rect key="frame" x="182" y="0.0" width="172" height="32"/>
+                                        <color key="backgroundColor" name="ButtonColor"/>
+                                        <color key="tintColor" name="textColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="로그인">
+                                            <fontDescription key="titleFontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="18"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="roundButton" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fd4-Tl-6mV" secondAttribute="trailing" constant="30" id="0tn-9V-hcg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Crt-ro-X8N" secondAttribute="trailing" constant="24" id="1za-bo-50X"/>
+                            <constraint firstItem="yc8-P4-gnR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="L2a-x8-OVm"/>
+                            <constraint firstItem="Crt-ro-X8N" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="STU-wi-4dG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yc8-P4-gnR" secondAttribute="trailing" constant="40" id="T2W-xX-ipt"/>
+                            <constraint firstItem="Fd4-Tl-6mV" firstAttribute="top" secondItem="yc8-P4-gnR" secondAttribute="bottom" constant="70" id="WwS-LM-wVD"/>
+                            <constraint firstItem="Crt-ro-X8N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="icM-ro-2HB"/>
+                            <constraint firstItem="Fd4-Tl-6mV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="lEh-HR-NOU"/>
+                            <constraint firstItem="yc8-P4-gnR" firstAttribute="top" secondItem="Crt-ro-X8N" secondAttribute="bottom" constant="65" id="oXk-Sc-dZq"/>
+                            <constraint firstItem="Crt-ro-X8N" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="stK-Az-7rb"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="YaZ-qW-itG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="773.91304347826087" y="-174.10714285714286"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RUp-12-Q5J">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nUG-qB-GYU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3ev-RU-9Kp">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UTD-Yv-dSM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aWM-QG-7N7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-136.23188405797103" y="-174.10714285714286"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="LockIcon" width="24" height="24"/>
+        <image name="UserIcon" width="10.5" height="10.5"/>
+        <namedColor name="BackgroundColor">
+            <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ButtonColor">
+            <color red="0.9137254901960784" green="0.90588235294117647" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>

@@ -27,6 +27,13 @@
 		E60BB5002859561800781E84 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4FF2859561800781E84 /* MainCell.swift */; };
 		E60BB5022859562500781E84 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB5012859562500781E84 /* PostCell.swift */; };
 		E60BB50628595A8000781E84 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB50528595A8000781E84 /* AppController.swift */; };
+		E60BB50828595C6800781E84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E60BB50728595C6800781E84 /* GoogleService-Info.plist */; };
+		E60BB50928595C6800781E84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E60BB50728595C6800781E84 /* GoogleService-Info.plist */; };
+		E60BB50A28595C6800781E84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E60BB50728595C6800781E84 /* GoogleService-Info.plist */; };
+		E60BB50C28595EA200781E84 /* LeeSeoyun.otf in Resources */ = {isa = PBXBuildFile; fileRef = E60BB50B28595E9A00781E84 /* LeeSeoyun.otf */; };
+		E60BB50F2859618700781E84 /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB50E2859618700781E84 /* EditButton.swift */; };
+		E60BB5102859618700781E84 /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB50E2859618700781E84 /* EditButton.swift */; };
+		E60BB5112859618700781E84 /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB50E2859618700781E84 /* EditButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +84,9 @@
 		E60BB4FF2859561800781E84 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		E60BB5012859562500781E84 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		E60BB50528595A8000781E84 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		E60BB50728595C6800781E84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		E60BB50B28595E9A00781E84 /* LeeSeoyun.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeeSeoyun.otf; sourceTree = "<group>"; };
+		E60BB50E2859618700781E84 /* EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +165,7 @@
 		E60BB4BE2858837000781E84 /* TodayApp */ = {
 			isa = PBXGroup;
 			children = (
+				E60BB50D2859615800781E84 /* Appearance */,
 				E60BB4F8285955C500781E84 /* Cell */,
 				E60BB4F7285955BE00781E84 /* Model */,
 				E60BB4F6285955B800781E84 /* ViewModel */,
@@ -166,6 +177,8 @@
 				E60BB4C82858837300781E84 /* Assets.xcassets */,
 				E60BB4CA2858837300781E84 /* LaunchScreen.storyboard */,
 				E60BB4CD2858837300781E84 /* Info.plist */,
+				E60BB50728595C6800781E84 /* GoogleService-Info.plist */,
+				E60BB50B28595E9A00781E84 /* LeeSeoyun.otf */,
 			);
 			path = TodayApp;
 			sourceTree = "<group>";
@@ -237,6 +250,14 @@
 				E60BB5012859562500781E84 /* PostCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		E60BB50D2859615800781E84 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				E60BB50E2859618700781E84 /* EditButton.swift */,
+			);
+			path = Appearance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +370,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E60BB4CC2858837300781E84 /* LaunchScreen.storyboard in Resources */,
+				E60BB50828595C6800781E84 /* GoogleService-Info.plist in Resources */,
+				E60BB50C28595EA200781E84 /* LeeSeoyun.otf in Resources */,
 				E60BB4C92858837300781E84 /* Assets.xcassets in Resources */,
 				E60BB4C72858837000781E84 /* Main.storyboard in Resources */,
 			);
@@ -358,6 +381,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E60BB50928595C6800781E84 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +389,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E60BB50A28595C6800781E84 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E60BB4FA285955E200781E84 /* PostVC.swift in Sources */,
+				E60BB50F2859618700781E84 /* EditButton.swift in Sources */,
 				E60BB4FE285955F200781E84 /* SettingVC.swift in Sources */,
 				E60BB4F02858855A00781E84 /* JoinVC.swift in Sources */,
 				E60BB4F22858856300781E84 /* MainVC.swift in Sources */,
@@ -497,6 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E60BB4D72858837300781E84 /* TodayAppTests.swift in Sources */,
+				E60BB5102859618700781E84 /* EditButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E60BB4E32858837300781E84 /* TodayAppUITestsLaunchTests.swift in Sources */,
+				E60BB5112859618700781E84 /* EditButton.swift in Sources */,
 				E60BB4E12858837300781E84 /* TodayAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,8 +700,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -683,7 +713,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -701,8 +731,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -712,7 +744,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
