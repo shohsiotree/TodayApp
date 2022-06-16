@@ -19,14 +19,13 @@
 		E60BB4D72858837300781E84 /* TodayAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4D62858837300781E84 /* TodayAppTests.swift */; };
 		E60BB4E12858837300781E84 /* TodayAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4E02858837300781E84 /* TodayAppUITests.swift */; };
 		E60BB4E32858837300781E84 /* TodayAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4E22858837300781E84 /* TodayAppUITestsLaunchTests.swift */; };
-		E60BB4F02858855A00781E84 /* JoinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4EF2858855A00781E84 /* JoinVC.swift */; };
+		E60BB4F02858855A00781E84 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4EF2858855A00781E84 /* SignInVC.swift */; };
 		E60BB4F22858856300781E84 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4F12858856300781E84 /* MainVC.swift */; };
 		E60BB4FA285955E200781E84 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4F9285955E200781E84 /* PostVC.swift */; };
 		E60BB4FC285955E900781E84 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4FB285955E900781E84 /* AddVC.swift */; };
 		E60BB4FE285955F200781E84 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4FD285955F200781E84 /* SettingVC.swift */; };
 		E60BB5002859561800781E84 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4FF2859561800781E84 /* MainCell.swift */; };
 		E60BB5022859562500781E84 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB5012859562500781E84 /* PostCell.swift */; };
-		E60BB50628595A8000781E84 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB50528595A8000781E84 /* AppController.swift */; };
 		E60BB50828595C6800781E84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E60BB50728595C6800781E84 /* GoogleService-Info.plist */; };
 		E60BB50928595C6800781E84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E60BB50728595C6800781E84 /* GoogleService-Info.plist */; };
 		E60BB50A28595C6800781E84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E60BB50728595C6800781E84 /* GoogleService-Info.plist */; };
@@ -34,6 +33,11 @@
 		E60BB50F2859618700781E84 /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB50E2859618700781E84 /* EditButton.swift */; };
 		E60BB5102859618700781E84 /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB50E2859618700781E84 /* EditButton.swift */; };
 		E60BB5112859618700781E84 /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB50E2859618700781E84 /* EditButton.swift */; };
+		E6398036285B03D500347E87 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6398035285B03D500347E87 /* CustomAlert.swift */; };
+		E6398038285B0B6100347E87 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6398037285B0B6100347E87 /* AuthService.swift */; };
+		E639803A285B192100347E87 /* CheckVaild.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6398039285B192100347E87 /* CheckVaild.swift */; };
+		E639803E285B254500347E87 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E639803D285B254500347E87 /* IntroVC.swift */; };
+		E6398040285B265300347E87 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E639803F285B265300347E87 /* AppManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,17 +80,21 @@
 		E60BB4DC2858837300781E84 /* TodayAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodayAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60BB4E02858837300781E84 /* TodayAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppUITests.swift; sourceTree = "<group>"; };
 		E60BB4E22858837300781E84 /* TodayAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E60BB4EF2858855A00781E84 /* JoinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinVC.swift; sourceTree = "<group>"; };
+		E60BB4EF2858855A00781E84 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		E60BB4F12858856300781E84 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		E60BB4F9285955E200781E84 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		E60BB4FB285955E900781E84 /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
 		E60BB4FD285955F200781E84 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		E60BB4FF2859561800781E84 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		E60BB5012859562500781E84 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
-		E60BB50528595A8000781E84 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		E60BB50728595C6800781E84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E60BB50B28595E9A00781E84 /* LeeSeoyun.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeeSeoyun.otf; sourceTree = "<group>"; };
 		E60BB50E2859618700781E84 /* EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButton.swift; sourceTree = "<group>"; };
+		E6398035285B03D500347E87 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		E6398037285B0B6100347E87 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		E6398039285B192100347E87 /* CheckVaild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckVaild.swift; sourceTree = "<group>"; };
+		E639803D285B254500347E87 /* IntroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
+		E639803F285B265300347E87 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +178,6 @@
 				E60BB4F7285955BE00781E84 /* Model */,
 				E60BB4F6285955B800781E84 /* ViewModel */,
 				E60BB4F32859558600781E84 /* ViewController */,
-				E60BB50528595A8000781E84 /* AppController.swift */,
 				E60BB4BF2858837000781E84 /* AppDelegate.swift */,
 				E60BB4C12858837000781E84 /* SceneDelegate.swift */,
 				E60BB4C52858837000781E84 /* Main.storyboard */,
@@ -179,6 +186,7 @@
 				E60BB4CD2858837300781E84 /* Info.plist */,
 				E60BB50728595C6800781E84 /* GoogleService-Info.plist */,
 				E60BB50B28595E9A00781E84 /* LeeSeoyun.otf */,
+				E639803F285B265300347E87 /* AppManager.swift */,
 			);
 			path = TodayApp;
 			sourceTree = "<group>";
@@ -212,8 +220,9 @@
 		E60BB4F42859559600781E84 /* Login&Join */ = {
 			isa = PBXGroup;
 			children = (
+				E639803D285B254500347E87 /* IntroVC.swift */,
 				E60BB4C32858837000781E84 /* LoginVC.swift */,
-				E60BB4EF2858855A00781E84 /* JoinVC.swift */,
+				E60BB4EF2858855A00781E84 /* SignInVC.swift */,
 			);
 			path = "Login&Join";
 			sourceTree = "<group>";
@@ -256,6 +265,9 @@
 			isa = PBXGroup;
 			children = (
 				E60BB50E2859618700781E84 /* EditButton.swift */,
+				E6398035285B03D500347E87 /* CustomAlert.swift */,
+				E6398037285B0B6100347E87 /* AuthService.swift */,
+				E6398039285B192100347E87 /* CheckVaild.swift */,
 			);
 			path = Appearance;
 			sourceTree = "<group>";
@@ -504,15 +516,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				E60BB4FA285955E200781E84 /* PostVC.swift in Sources */,
+				E639803E285B254500347E87 /* IntroVC.swift in Sources */,
+				E639803A285B192100347E87 /* CheckVaild.swift in Sources */,
 				E60BB50F2859618700781E84 /* EditButton.swift in Sources */,
 				E60BB4FE285955F200781E84 /* SettingVC.swift in Sources */,
-				E60BB4F02858855A00781E84 /* JoinVC.swift in Sources */,
+				E60BB4F02858855A00781E84 /* SignInVC.swift in Sources */,
 				E60BB4F22858856300781E84 /* MainVC.swift in Sources */,
 				E60BB4C42858837000781E84 /* LoginVC.swift in Sources */,
-				E60BB50628595A8000781E84 /* AppController.swift in Sources */,
 				E60BB4C02858837000781E84 /* AppDelegate.swift in Sources */,
 				E60BB4FC285955E900781E84 /* AddVC.swift in Sources */,
 				E60BB4C22858837000781E84 /* SceneDelegate.swift in Sources */,
+				E6398036285B03D500347E87 /* CustomAlert.swift in Sources */,
+				E6398038285B0B6100347E87 /* AuthService.swift in Sources */,
+				E6398040285B265300347E87 /* AppManager.swift in Sources */,
 				E60BB5002859561800781E84 /* MainCell.swift in Sources */,
 				E60BB5022859562500781E84 /* PostCell.swift in Sources */,
 			);
@@ -699,10 +715,10 @@
 				INFOPLIST_FILE = TodayApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -730,10 +746,10 @@
 				INFOPLIST_FILE = TodayApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

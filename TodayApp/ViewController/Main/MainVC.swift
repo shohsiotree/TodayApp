@@ -6,24 +6,18 @@
 //
 
 import UIKit
+import Firebase
 
 class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func logoutButton(_ sender: Any) {
+        try? Auth.auth().signOut()
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "LoginVC") else { return }
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
     }
-    */
-
 }

@@ -20,4 +20,5 @@ pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 pod 'SDWebImage', '~> 5.0'
 pod 'Alamofire', '~> 5.5'
+pod 'IQKeyboardManagerSwift'
 end
