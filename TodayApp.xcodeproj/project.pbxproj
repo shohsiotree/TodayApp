@@ -24,8 +24,6 @@
 		E60BB4FA285955E200781E84 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4F9285955E200781E84 /* PostVC.swift */; };
 		E60BB4FC285955E900781E84 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4FB285955E900781E84 /* AddVC.swift */; };
 		E60BB4FE285955F200781E84 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4FD285955F200781E84 /* SettingVC.swift */; };
-		E60BB5002859561800781E84 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4FF2859561800781E84 /* MainCell.swift */; };
-		E60BB5022859562500781E84 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB5012859562500781E84 /* PostCell.swift */; };
 		E60BB50828595C6800781E84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E60BB50728595C6800781E84 /* GoogleService-Info.plist */; };
 		E60BB50928595C6800781E84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E60BB50728595C6800781E84 /* GoogleService-Info.plist */; };
 		E60BB50A28595C6800781E84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E60BB50728595C6800781E84 /* GoogleService-Info.plist */; };
@@ -33,6 +31,12 @@
 		E60BB50F2859618700781E84 /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB50E2859618700781E84 /* EditButton.swift */; };
 		E60BB5102859618700781E84 /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB50E2859618700781E84 /* EditButton.swift */; };
 		E60BB5112859618700781E84 /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB50E2859618700781E84 /* EditButton.swift */; };
+		E6263281285C51D200B1AFEF /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6263280285C51D200B1AFEF /* DateCell.swift */; };
+		E6263283285C51FA00B1AFEF /* TodoDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6263282285C51FA00B1AFEF /* TodoDataCell.swift */; };
+		E6263285285C520300B1AFEF /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6263284285C520300B1AFEF /* EmptyCell.swift */; };
+		E6263288285C536800B1AFEF /* TodoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6263287285C536800B1AFEF /* TodoDataModel.swift */; };
+		E626328A285C53F800B1AFEF /* TodoDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6263289285C53F800B1AFEF /* TodoDataViewModel.swift */; };
+		E626328D285C58D200B1AFEF /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E626328C285C58D200B1AFEF /* DatabaseService.swift */; };
 		E6398036285B03D500347E87 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6398035285B03D500347E87 /* CustomAlert.swift */; };
 		E6398038285B0B6100347E87 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6398037285B0B6100347E87 /* AuthService.swift */; };
 		E639803A285B192100347E87 /* CheckVaild.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6398039285B192100347E87 /* CheckVaild.swift */; };
@@ -85,11 +89,15 @@
 		E60BB4F9285955E200781E84 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		E60BB4FB285955E900781E84 /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
 		E60BB4FD285955F200781E84 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
-		E60BB4FF2859561800781E84 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
-		E60BB5012859562500781E84 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		E60BB50728595C6800781E84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E60BB50B28595E9A00781E84 /* LeeSeoyun.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeeSeoyun.otf; sourceTree = "<group>"; };
 		E60BB50E2859618700781E84 /* EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButton.swift; sourceTree = "<group>"; };
+		E6263280285C51D200B1AFEF /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		E6263282285C51FA00B1AFEF /* TodoDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDataCell.swift; sourceTree = "<group>"; };
+		E6263284285C520300B1AFEF /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
+		E6263287285C536800B1AFEF /* TodoDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDataModel.swift; sourceTree = "<group>"; };
+		E6263289285C53F800B1AFEF /* TodoDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDataViewModel.swift; sourceTree = "<group>"; };
+		E626328C285C58D200B1AFEF /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		E6398035285B03D500347E87 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		E6398037285B0B6100347E87 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		E6398039285B192100347E87 /* CheckVaild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckVaild.swift; sourceTree = "<group>"; };
@@ -173,11 +181,13 @@
 		E60BB4BE2858837000781E84 /* TodayApp */ = {
 			isa = PBXGroup;
 			children = (
+				E626328B285C589E00B1AFEF /* Service */,
 				E60BB50D2859615800781E84 /* Appearance */,
 				E60BB4F8285955C500781E84 /* Cell */,
 				E60BB4F7285955BE00781E84 /* Model */,
 				E60BB4F6285955B800781E84 /* ViewModel */,
 				E60BB4F32859558600781E84 /* ViewController */,
+				E639803F285B265300347E87 /* AppManager.swift */,
 				E60BB4BF2858837000781E84 /* AppDelegate.swift */,
 				E60BB4C12858837000781E84 /* SceneDelegate.swift */,
 				E60BB4C52858837000781E84 /* Main.storyboard */,
@@ -186,7 +196,6 @@
 				E60BB4CD2858837300781E84 /* Info.plist */,
 				E60BB50728595C6800781E84 /* GoogleService-Info.plist */,
 				E60BB50B28595E9A00781E84 /* LeeSeoyun.otf */,
-				E639803F285B265300347E87 /* AppManager.swift */,
 			);
 			path = TodayApp;
 			sourceTree = "<group>";
@@ -241,6 +250,7 @@
 		E60BB4F6285955B800781E84 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E6263289285C53F800B1AFEF /* TodoDataViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -248,6 +258,7 @@
 		E60BB4F7285955BE00781E84 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E6263287285C536800B1AFEF /* TodoDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -255,8 +266,7 @@
 		E60BB4F8285955C500781E84 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				E60BB4FF2859561800781E84 /* MainCell.swift */,
-				E60BB5012859562500781E84 /* PostCell.swift */,
+				E6263286285C520800B1AFEF /* MainCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -266,10 +276,28 @@
 			children = (
 				E60BB50E2859618700781E84 /* EditButton.swift */,
 				E6398035285B03D500347E87 /* CustomAlert.swift */,
-				E6398037285B0B6100347E87 /* AuthService.swift */,
-				E6398039285B192100347E87 /* CheckVaild.swift */,
 			);
 			path = Appearance;
+			sourceTree = "<group>";
+		};
+		E6263286285C520800B1AFEF /* MainCell */ = {
+			isa = PBXGroup;
+			children = (
+				E6263280285C51D200B1AFEF /* DateCell.swift */,
+				E6263284285C520300B1AFEF /* EmptyCell.swift */,
+				E6263282285C51FA00B1AFEF /* TodoDataCell.swift */,
+			);
+			name = MainCell;
+			sourceTree = "<group>";
+		};
+		E626328B285C589E00B1AFEF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E6398037285B0B6100347E87 /* AuthService.swift */,
+				E6398039285B192100347E87 /* CheckVaild.swift */,
+				E626328C285C58D200B1AFEF /* DatabaseService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -516,21 +544,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				E60BB4FA285955E200781E84 /* PostVC.swift in Sources */,
+				E6263288285C536800B1AFEF /* TodoDataModel.swift in Sources */,
 				E639803E285B254500347E87 /* IntroVC.swift in Sources */,
 				E639803A285B192100347E87 /* CheckVaild.swift in Sources */,
 				E60BB50F2859618700781E84 /* EditButton.swift in Sources */,
 				E60BB4FE285955F200781E84 /* SettingVC.swift in Sources */,
 				E60BB4F02858855A00781E84 /* SignInVC.swift in Sources */,
 				E60BB4F22858856300781E84 /* MainVC.swift in Sources */,
+				E6263281285C51D200B1AFEF /* DateCell.swift in Sources */,
+				E626328A285C53F800B1AFEF /* TodoDataViewModel.swift in Sources */,
 				E60BB4C42858837000781E84 /* LoginVC.swift in Sources */,
+				E6263285285C520300B1AFEF /* EmptyCell.swift in Sources */,
 				E60BB4C02858837000781E84 /* AppDelegate.swift in Sources */,
 				E60BB4FC285955E900781E84 /* AddVC.swift in Sources */,
+				E626328D285C58D200B1AFEF /* DatabaseService.swift in Sources */,
 				E60BB4C22858837000781E84 /* SceneDelegate.swift in Sources */,
 				E6398036285B03D500347E87 /* CustomAlert.swift in Sources */,
 				E6398038285B0B6100347E87 /* AuthService.swift in Sources */,
+				E6263283285C51FA00B1AFEF /* TodoDataCell.swift in Sources */,
 				E6398040285B265300347E87 /* AppManager.swift in Sources */,
-				E60BB5002859561800781E84 /* MainCell.swift in Sources */,
-				E60BB5022859562500781E84 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

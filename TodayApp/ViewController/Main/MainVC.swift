@@ -14,10 +14,22 @@ class MainVC: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func logoutButton(_ sender: Any) {
-        try? Auth.auth().signOut()
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "LoginVC") else { return }
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+
+}
+extension MainVC: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }
+/*
+ @IBAction func logoutButton(_ sender: Any) {
+     try? Auth.auth().signOut()
+     guard let vc = storyboard?.instantiateViewController(withIdentifier: "LoginVC") else { return }
+     vc.modalPresentationStyle = .fullScreen
+     self.present(vc, animated: true)
+ }
+ */
