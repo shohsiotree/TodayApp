@@ -42,6 +42,9 @@
 		E639803A285B192100347E87 /* CheckVaild.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6398039285B192100347E87 /* CheckVaild.swift */; };
 		E639803E285B254500347E87 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E639803D285B254500347E87 /* IntroVC.swift */; };
 		E6398040285B265300347E87 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E639803F285B265300347E87 /* AppManager.swift */; };
+		E6C3F4A528600053000497AE /* ChangeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4A428600053000497AE /* ChangeFont.swift */; };
+		E6C3F4A72860082D000497AE /* ChangeFormmater.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4A62860082D000497AE /* ChangeFormmater.swift */; };
+		E6C3F4A9286035FB000497AE /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4A8286035FB000497AE /* TitleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,9 @@
 		E6398039285B192100347E87 /* CheckVaild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckVaild.swift; sourceTree = "<group>"; };
 		E639803D285B254500347E87 /* IntroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
 		E639803F285B265300347E87 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		E6C3F4A428600053000497AE /* ChangeFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFont.swift; sourceTree = "<group>"; };
+		E6C3F4A62860082D000497AE /* ChangeFormmater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFormmater.swift; sourceTree = "<group>"; };
+		E6C3F4A8286035FB000497AE /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TitleCell.swift; path = ../../../TitleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,12 +193,9 @@
 				E60BB4F7285955BE00781E84 /* Model */,
 				E60BB4F6285955B800781E84 /* ViewModel */,
 				E60BB4F32859558600781E84 /* ViewController */,
-				E639803F285B265300347E87 /* AppManager.swift */,
-				E60BB4BF2858837000781E84 /* AppDelegate.swift */,
-				E60BB4C12858837000781E84 /* SceneDelegate.swift */,
-				E60BB4C52858837000781E84 /* Main.storyboard */,
+				E6C3F4A2285FF957000497AE /* Storyboard */,
+				E6C3F4A3285FF968000497AE /* Delegate */,
 				E60BB4C82858837300781E84 /* Assets.xcassets */,
-				E60BB4CA2858837300781E84 /* LaunchScreen.storyboard */,
 				E60BB4CD2858837300781E84 /* Info.plist */,
 				E60BB50728595C6800781E84 /* GoogleService-Info.plist */,
 				E60BB50B28595E9A00781E84 /* LeeSeoyun.otf */,
@@ -276,6 +279,8 @@
 			children = (
 				E60BB50E2859618700781E84 /* EditButton.swift */,
 				E6398035285B03D500347E87 /* CustomAlert.swift */,
+				E6C3F4A428600053000497AE /* ChangeFont.swift */,
+				E6C3F4A62860082D000497AE /* ChangeFormmater.swift */,
 			);
 			path = Appearance;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 				E6263280285C51D200B1AFEF /* DateCell.swift */,
 				E6263284285C520300B1AFEF /* EmptyCell.swift */,
 				E6263282285C51FA00B1AFEF /* TodoDataCell.swift */,
+				E6C3F4A8286035FB000497AE /* TitleCell.swift */,
 			);
 			name = MainCell;
 			sourceTree = "<group>";
@@ -298,6 +304,25 @@
 				E626328C285C58D200B1AFEF /* DatabaseService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		E6C3F4A2285FF957000497AE /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E60BB4C52858837000781E84 /* Main.storyboard */,
+				E60BB4CA2858837300781E84 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		E6C3F4A3285FF968000497AE /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				E639803F285B265300347E87 /* AppManager.swift */,
+				E60BB4BF2858837000781E84 /* AppDelegate.swift */,
+				E60BB4C12858837000781E84 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -547,18 +572,21 @@
 				E6263288285C536800B1AFEF /* TodoDataModel.swift in Sources */,
 				E639803E285B254500347E87 /* IntroVC.swift in Sources */,
 				E639803A285B192100347E87 /* CheckVaild.swift in Sources */,
+				E6C3F4A9286035FB000497AE /* TitleCell.swift in Sources */,
 				E60BB50F2859618700781E84 /* EditButton.swift in Sources */,
 				E60BB4FE285955F200781E84 /* SettingVC.swift in Sources */,
 				E60BB4F02858855A00781E84 /* SignInVC.swift in Sources */,
 				E60BB4F22858856300781E84 /* MainVC.swift in Sources */,
 				E6263281285C51D200B1AFEF /* DateCell.swift in Sources */,
 				E626328A285C53F800B1AFEF /* TodoDataViewModel.swift in Sources */,
+				E6C3F4A528600053000497AE /* ChangeFont.swift in Sources */,
 				E60BB4C42858837000781E84 /* LoginVC.swift in Sources */,
 				E6263285285C520300B1AFEF /* EmptyCell.swift in Sources */,
 				E60BB4C02858837000781E84 /* AppDelegate.swift in Sources */,
 				E60BB4FC285955E900781E84 /* AddVC.swift in Sources */,
 				E626328D285C58D200B1AFEF /* DatabaseService.swift in Sources */,
 				E60BB4C22858837000781E84 /* SceneDelegate.swift in Sources */,
+				E6C3F4A72860082D000497AE /* ChangeFormmater.swift in Sources */,
 				E6398036285B03D500347E87 /* CustomAlert.swift in Sources */,
 				E6398038285B0B6100347E87 /* AuthService.swift in Sources */,
 				E6263283285C51FA00B1AFEF /* TodoDataCell.swift in Sources */,

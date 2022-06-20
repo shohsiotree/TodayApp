@@ -11,7 +11,7 @@ struct TodoDataViewModel {
     var TodoM: [TodoDataModel]
     
     func todoCount() -> Int {
-        return TodoM.count == 0 ? 0 : TodoM.count
+        return TodoM.count
     }
     
     func todoOfCellIndex(index: Int) -> TodoDataModel {
