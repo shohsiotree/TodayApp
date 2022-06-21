@@ -67,8 +67,8 @@ class ExVC: UIViewController {
     }
     
     @objc func keyboardWillHide(_ sender: Notification) {
-        self.tableView.frame.size.height += keyHeight!
-        self.view.frame.size.height += keyHeight!
+        self.tableView.frame.size.height += self.keyHeight!
+        self.view.frame.size.height += self.keyHeight!
     }
     @IBAction func alramButton(_ sender: Any) {
         //TODO: 알람 데이트 피커 열기

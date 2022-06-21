@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import IQKeyboardManagerSwift
 
 protocol FillInfoData: AnyObject {
     func fillData(email: String?)
@@ -19,9 +20,11 @@ class SignInVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var rePasswordText: UITextField!
     
     weak var delegate: FillInfoData?
+    var keyHeight: CGFloat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        IQKeyboardManager.shared.enable = true
         setUp()
     }
     
@@ -30,8 +33,6 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         self.passwordText.delegate = self
         self.rePasswordText.delegate = self
     }
-    
-   
     
     @IBAction func siginButton(_ sender: Any) {
         guard let emailText = self.emailText.text else { return }
@@ -49,6 +50,10 @@ class SignInVC: UIViewController, UITextFieldDelegate {
                 CustomAlert().basicAlert(title: "알림", message: "비밀번호가 동일하지 않습니다", vc: self)
             }
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
 

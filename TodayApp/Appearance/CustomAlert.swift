@@ -10,9 +10,7 @@ import UIKit
 class CustomAlert {
     func basicAlert(title: String, message: String, vc: UIViewController) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "확인", style: .cancel) { _ in
-            vc.dismiss(animated: true)
-        }
+        let action = UIAlertAction(title: "확인", style: .cancel)
         alert.addAction(action)
         vc.present(alert, animated: true)
     }
