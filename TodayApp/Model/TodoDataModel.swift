@@ -8,7 +8,8 @@
 import Foundation
 
 struct TodoDataModel {
-    var date: Date
+    var date: String
     var todoText: String
-    var check: Bool
+    var alarm: String
+    var isDone: Bool
 }
