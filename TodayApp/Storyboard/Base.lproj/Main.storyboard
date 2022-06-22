@@ -156,24 +156,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jap-Oy-dYY">
-                                <rect key="frame" x="312" y="747" width="67" height="31"/>
+                            <datePicker alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="vgI-nm-fPd">
+                                <rect key="frame" x="60" y="626" width="294" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="1qp-kS-NGo"/>
+                                </constraints>
+                                <locale key="locale" localeIdentifier="ko"/>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jap-Oy-dYY" customClass="EditButton" customModule="TodayApp" customModuleProvider="target">
+                                <rect key="frame" x="323.5" y="714" width="55.5" height="64"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="+">
+                                    <fontDescription key="titleFontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="50"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundButton" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="tapAddButton:" destination="J3X-y7-Ckk" eventType="touchUpInside" id="hlf-Xb-4CU"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NP7-IX-DBy">
-                                <rect key="frame" x="0.0" y="896" width="414" height="0.0"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NP7-IX-DBy">
+                                <rect key="frame" x="0.0" y="816" width="414" height="80"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBy-aq-ZEF">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                         <color key="backgroundColor" name="BackgroundColor"/>
                                         <items>
                                             <barButtonItem style="plain" id="KOw-gk-meh">
                                                 <textField key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="iZG-bN-cFc">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="0.0"/>
+                                                    <rect key="frame" x="20" y="3" width="374" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -181,143 +194,50 @@
                                             </barButtonItem>
                                         </items>
                                     </toolbar>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zni-7Z-iMv">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
-                                        <color key="backgroundColor" name="BackgroundColor"/>
-                                        <items>
-                                            <barButtonItem style="plain" id="hOU-SR-TJK">
-                                                <view key="customView" contentMode="scaleToFill" id="A6S-uA-A02">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="0.0"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" systemColor="tintColor"/>
-                                                </view>
-                                            </barButtonItem>
-                                        </items>
-                                    </toolbar>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQc-ut-pnx">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
-                                        <color key="backgroundColor" name="BackgroundColor"/>
-                                        <items>
-                                            <barButtonItem style="plain" id="nlB-JI-RBL">
-                                                <view key="customView" contentMode="scaleToFill" id="vzc-9K-OMg">
-                                                    <rect key="frame" x="20" y="0.0" width="22" height="0.0"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" name="BackgroundColor"/>
-                                                </view>
-                                                <color key="tintColor" name="BackgroundColor"/>
-                                            </barButtonItem>
-                                            <barButtonItem style="plain" id="y6C-J1-RCl">
-                                                <view key="customView" contentMode="scaleToFill" id="3iN-RZ-kRi">
-                                                    <rect key="frame" x="42" y="0.0" width="22" height="0.0"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" name="BackgroundColor"/>
-                                                </view>
-                                                <color key="tintColor" name="BackgroundColor"/>
-                                            </barButtonItem>
-                                            <barButtonItem style="plain" id="Zsc-lu-C58">
-                                                <view key="customView" contentMode="scaleToFill" id="qrC-wp-PvQ">
-                                                    <rect key="frame" x="64" y="0.0" width="22" height="0.0"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" name="BackgroundColor"/>
-                                                </view>
-                                                <color key="tintColor" name="BackgroundColor"/>
-                                            </barButtonItem>
-                                            <barButtonItem style="plain" id="0lz-yc-qCv">
-                                                <view key="customView" contentMode="scaleToFill" id="Irm-Gk-eYO">
-                                                    <rect key="frame" x="86" y="0.0" width="22" height="0.0"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" name="BackgroundColor"/>
-                                                </view>
-                                                <color key="tintColor" name="BackgroundColor"/>
-                                            </barButtonItem>
-                                            <barButtonItem style="plain" id="d84-fd-SI8">
-                                                <view key="customView" contentMode="scaleToFill" id="c0W-NZ-zfe">
-                                                    <rect key="frame" x="108" y="0.0" width="22" height="0.0"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" name="BackgroundColor"/>
-                                                </view>
-                                                <color key="tintColor" name="BackgroundColor"/>
-                                            </barButtonItem>
-                                            <barButtonItem style="plain" id="qeI-66-i8N">
-                                                <view key="customView" contentMode="scaleToFill" id="J2D-fw-gSu">
-                                                    <rect key="frame" x="130" y="0.0" width="22" height="0.0"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" name="BackgroundColor"/>
-                                                </view>
-                                                <color key="tintColor" name="BackgroundColor"/>
-                                            </barButtonItem>
-                                            <barButtonItem style="plain" id="3LZ-cW-Dpi">
-                                                <view key="customView" contentMode="scaleToFill" id="sGn-DU-ZSa">
-                                                    <rect key="frame" x="152" y="0.0" width="22" height="0.0"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" name="BackgroundColor"/>
-                                                </view>
-                                                <color key="tintColor" name="BackgroundColor"/>
-                                            </barButtonItem>
-                                            <barButtonItem style="plain" id="03a-N3-Fev">
-                                                <view key="customView" contentMode="scaleToFill" id="DbC-aL-Mdh">
-                                                    <rect key="frame" x="174" y="0.0" width="22" height="0.0"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evr-gx-wcz">
-                                                            <rect key="frame" x="-10" y="7" width="0.0" height="0.0"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" name="BackgroundColor"/>
-                                                </view>
-                                                <color key="tintColor" name="BackgroundColor"/>
-                                            </barButtonItem>
-                                            <barButtonItem style="plain" id="IXh-qT-fPU">
-                                                <view key="customView" contentMode="scaleToFill" id="dd0-7d-Sui">
-                                                    <rect key="frame" x="196" y="0.0" width="0.0" height="0.0"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" name="BackgroundColor"/>
-                                                </view>
-                                                <color key="tintColor" name="BackgroundColor"/>
-                                            </barButtonItem>
-                                            <barButtonItem style="plain" id="240-uH-MGz">
-                                                <view key="customView" contentMode="scaleToFill" id="YFL-Mk-CpD">
-                                                    <rect key="frame" x="196" y="0.0" width="0.0" height="0.0"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" name="BackgroundColor"/>
-                                                </view>
-                                                <color key="tintColor" name="BackgroundColor"/>
-                                            </barButtonItem>
-                                            <barButtonItem style="plain" id="Drb-aS-3KJ">
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="epY-GZ-Nuc">
-                                                    <rect key="frame" x="196" y="0.0" width="75" height="0.0"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="알람"/>
-                                                    <connections>
-                                                        <action selector="alramButton:" destination="J3X-y7-Ckk" eventType="touchUpInside" id="zLR-EC-R7f"/>
-                                                    </connections>
-                                                </button>
-                                            </barButtonItem>
-                                            <barButtonItem style="plain" id="yC5-Ch-IJ3">
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="FIE-P0-sRy">
-                                                    <rect key="frame" x="333" y="0.0" width="61" height="0.0"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="Save"/>
-                                                    <connections>
-                                                        <action selector="saveButton:" destination="J3X-y7-Ckk" eventType="touchUpInside" id="26Z-fC-n8h"/>
-                                                    </connections>
-                                                </button>
-                                            </barButtonItem>
-                                        </items>
-                                    </toolbar>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNF-S4-UDM">
+                                        <rect key="frame" x="0.0" y="40" width="414" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오후 7:48" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zck-la-yAb">
+                                                <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
+                                                <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9E8-bp-3aK">
+                                                <rect key="frame" x="294" y="0.0" width="60" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="5BV-2c-QJz"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="알람"/>
+                                                <connections>
+                                                    <action selector="tapAlarmButton:" destination="J3X-y7-Ckk" eventType="touchUpInside" id="eum-VF-Hb4"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RpV-Tw-fLQ">
+                                                <rect key="frame" x="354" y="0.0" width="60" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="CyF-OQ-hSX"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="저장"/>
+                                                <connections>
+                                                    <action selector="tapSaveButton:" destination="J3X-y7-Ckk" eventType="touchUpInside" id="0Ok-PW-Jtt"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" id="t6E-64-6s9"/>
+                                    <constraint firstItem="LNF-S4-UDM" firstAttribute="leading" secondItem="NP7-IX-DBy" secondAttribute="leading" id="G3y-Ec-EA6"/>
+                                    <constraint firstAttribute="bottom" secondItem="LNF-S4-UDM" secondAttribute="bottom" id="Jf2-Kc-Rmp"/>
+                                    <constraint firstItem="LNF-S4-UDM" firstAttribute="top" secondItem="BBy-aq-ZEF" secondAttribute="bottom" id="NSg-xh-Inj"/>
+                                    <constraint firstAttribute="trailing" secondItem="LNF-S4-UDM" secondAttribute="trailing" id="ajC-mM-NOW"/>
+                                    <constraint firstAttribute="height" constant="80" id="t6E-64-6s9"/>
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6k8-YL-8vW">
-                                <rect key="frame" x="20" y="108" width="374" height="748"/>
+                                <rect key="frame" x="20" y="108" width="374" height="668"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" name="BackgroundColor"/>
                                 <color key="sectionIndexTrackingBackgroundColor" name="BackgroundColor"/>
@@ -437,7 +357,10 @@
                             <constraint firstItem="NP7-IX-DBy" firstAttribute="top" secondItem="6k8-YL-8vW" secondAttribute="bottom" constant="40" id="3Pj-uH-bn5"/>
                             <constraint firstItem="NP7-IX-DBy" firstAttribute="leading" secondItem="yPJ-Kw-atw" secondAttribute="leading" id="MPo-zJ-PQB"/>
                             <constraint firstItem="yPJ-Kw-atw" firstAttribute="trailing" secondItem="Jap-Oy-dYY" secondAttribute="trailing" constant="35" id="MsP-7F-xJc"/>
+                            <constraint firstItem="vgI-nm-fPd" firstAttribute="leading" secondItem="yPJ-Kw-atw" secondAttribute="leading" constant="60" id="Pa3-JT-gPo"/>
+                            <constraint firstItem="vgI-nm-fPd" firstAttribute="bottom" secondItem="6k8-YL-8vW" secondAttribute="bottom" id="S3R-Oy-RhF"/>
                             <constraint firstItem="yPJ-Kw-atw" firstAttribute="trailing" secondItem="6k8-YL-8vW" secondAttribute="trailing" constant="20" id="Tzj-Gn-jZ4"/>
+                            <constraint firstItem="yPJ-Kw-atw" firstAttribute="trailing" secondItem="vgI-nm-fPd" secondAttribute="trailing" constant="60" id="W5X-7H-ec4"/>
                             <constraint firstItem="yPJ-Kw-atw" firstAttribute="bottom" secondItem="Jap-Oy-dYY" secondAttribute="bottom" constant="35" id="c1l-PC-AcW"/>
                             <constraint firstItem="NP7-IX-DBy" firstAttribute="trailing" secondItem="yPJ-Kw-atw" secondAttribute="trailing" id="gNp-Xb-X2u"/>
                             <constraint firstAttribute="bottom" secondItem="NP7-IX-DBy" secondAttribute="bottom" id="sVF-VZ-hcZ"/>
@@ -450,19 +373,21 @@
                     <navigationItem key="navigationItem" id="SKs-vw-lkb"/>
                     <connections>
                         <outlet property="addButton" destination="Jap-Oy-dYY" id="iMk-2X-qj2"/>
-                        <outlet property="alramText" destination="evr-gx-wcz" id="9u4-UC-GLH"/>
-                        <outlet property="buttonToolbar" destination="EQc-ut-pnx" id="guP-CI-XWW"/>
+                        <outlet property="alarmButton" destination="9E8-bp-3aK" id="hu5-ae-7NA"/>
+                        <outlet property="alarmText" destination="Zck-la-yAb" id="CDv-aO-R9L"/>
                         <outlet property="stackHeight" destination="t6E-64-6s9" id="lal-fy-Xe1"/>
                         <outlet property="tableView" destination="6k8-YL-8vW" id="ggb-SC-bJB"/>
                         <outlet property="textField" destination="iZG-bN-cFc" id="CQL-qx-mOg"/>
                         <outlet property="textToolbar" destination="BBy-aq-ZEF" id="mFf-cM-Qsx"/>
+                        <outlet property="timePicker" destination="vgI-nm-fPd" id="A9u-Wr-kcQ"/>
+                        <outlet property="timePickerHeight" destination="1qp-kS-NGo" id="D2u-lT-aC2"/>
                         <outlet property="toolbarStack" destination="NP7-IX-DBy" id="lIB-ZS-jwb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnD-kI-keM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="R6U-iP-Wa9"/>
             </objects>
-            <point key="canvasLocation" x="3696" y="-174"/>
+            <point key="canvasLocation" x="3695.652173913044" y="-174.10714285714286"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QCs-ea-U4b">
@@ -677,7 +602,6 @@
         <!--Item-->
         <scene sceneID="Xdb-Ba-UB4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="42M-Ed-5zw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wOn-Bn-Q9b" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="KD1-DZ-3eC"/>
                     <toolbarItems/>
@@ -690,6 +614,7 @@
                         <segue destination="acE-gd-TkN" kind="relationship" relationship="rootViewController" id="F96-4f-1T4"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="42M-Ed-5zw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1775" y="520"/>
         </scene>
@@ -718,6 +643,7 @@
                 <tabBarController storyboardIdentifier="MainVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cef-wz-y7V" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="toz-y7-nsy">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -759,9 +685,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
