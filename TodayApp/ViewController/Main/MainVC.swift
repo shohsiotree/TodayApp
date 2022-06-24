@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 
+//TODO: 키보드 이모지 눌렀을 떄, 키보드 height 정리
 class MainVC: UIViewController {
     
     @IBOutlet weak var toolbarStack: UIStackView!
@@ -148,11 +149,14 @@ class MainVC: UIViewController {
             let todayAlarm = alarm != "" ? alarm : ""
             let nowDate = dateString()
             guard let numbers = self.todoViewModel?.todoNumberCount() else { return }
-            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH:mm:ss"
+            formatter.locale = Locale(identifier: "ko_KR")
+            let time = formatter.string(from: Date())
             if numbers != 0 {
-                DatabaseService().updateTodoListDB(date: Date(), number: numbers+1, todoText: text, isAlarm: todayAlarm, isDone: false, table: self.tableView)
+                DatabaseService().updateTodoListDB(date: Date(), number: numbers+1, todoText: text, isAlarm: todayAlarm, isDone: false, uploadTime: time, table: self.tableView)
             } else {
-                DatabaseService().createTodoListDB(date: Date(), todoText: text, isAlarm: todayAlarm, table: self.tableView)
+                DatabaseService().createTodoListDB(date: Date(), todoText: text, isAlarm: todayAlarm, uploadTime: time, table: self.tableView)
             }
             
             UIView.animate(withDuration: 0.5) {

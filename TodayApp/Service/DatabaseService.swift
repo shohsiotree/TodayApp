@@ -37,23 +37,25 @@ class DatabaseService {
                         let todoText = a["todoText"] as! String
                         let isAlarm = a["isAlarm"] as! String
                         let isDone = a["isDone"] as! Bool
-                        todoM = TodoDataModel(documentId: documnetId, todoText: todoText, isAlarm: isAlarm, isDone: isDone)
+                        let uploadTime = a["uploadTime"] as! String
+                        todoM = TodoDataModel(documentId: documnetId, todoText: todoText, isAlarm: isAlarm, isDone: isDone, uploadTime: uploadTime)
                         arrtodoM.append(todoM)
                     }
                 }
             }
+            //TODO: 특정 값을 가지고 비교 해서 sorted 하기
             completion(arrtodoM)
             table.reloadData()
         }
     }
     //TODO: today Collection이 없으면, "+"으로 생성 시, CollectionName = today(생성, 추가)
-    func createTodoListDB(date: Date, todoText: String, isAlarm: String, table: UITableView) {
+    func createTodoListDB(date: Date, todoText: String, isAlarm: String, uploadTime: String, table: UITableView) {
         guard let email = Auth.auth().currentUser?.email else { return }
         let random = arc4random_uniform(999999999)
-        let field = [ "todoText": todoText, "isAlarm": isAlarm,"isDone": false] as [String : Any]
+        let field = [ "todoText": todoText, "isAlarm": isAlarm,"isDone": false, "uploadTime": uploadTime] as [String : Any]
         let documentId = ChangeFormmater().chagneFormmater(date: date)
         db.collection(email).document("\(documentId)\(random)").setData([
-            "1" : field,
+            "0" : field,
         ]) { err in
             guard err == nil else {
                 return print("createDB err: \(err!)")
@@ -64,10 +66,10 @@ class DatabaseService {
     }
     
     //TODO: today collection이 있으면, append 하여 추가 (업데이트)
-    func updateTodoListDB(date: Date, number: Int, todoText: String, isAlarm: String, isDone: Bool, table: UITableView) {
+    func updateTodoListDB(date: Date, number: Int, todoText: String, isAlarm: String, isDone: Bool, uploadTime: String, table: UITableView) {
         guard let email = Auth.auth().currentUser?.email else { return }
         let random = arc4random_uniform(999999999)
-        let field = [ "todoText": todoText, "isAlarm": isAlarm,"isDone": false] as [String : Any]
+        let field = [ "todoText": todoText, "isAlarm": isAlarm,"isDone": false, "uploadTime": uploadTime] as [String : Any]
         let documentId = ChangeFormmater().chagneFormmater(date: date)
         db.collection(email).document("\(documentId)\(random)").setData([
             "\(number)": field
@@ -75,14 +77,12 @@ class DatabaseService {
         table.reloadData()
     }
     //TODO: didSelect 시, IsDone 값 변경 (업데이트)
-    func didSelectTodoListDB(date: Date, number: Int, todoText: String, isAlarm: String, isDone: Bool, table: UITableView) {
+    func didSelectTodoListDB(date: Date, number: Int, todoText: String, isAlarm: String, isDone: Bool, uploadTime: String, table: UITableView) {
         guard let email = Auth.auth().currentUser?.email else { return }
         let documentId = ChangeFormmater().chagneFormmater(date: Date())
+        let field = [ "todoText": todoText, "isAlarm": isAlarm,"isDone": false, "uploadTime": uploadTime] as [String : Any]
         db.collection(email).document(documentId).updateData([
-            "number": number,
-            "todoText": todoText,
-            "isAlarm": isAlarm,
-            "isDone": isDone
+            number: field
         ])
         table.reloadData()
     }
