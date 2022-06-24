@@ -53,19 +53,15 @@ class CustomAlert {
         alert.addAction(saveButton)
         vc.present(alert, animated: true)
     }
-    
-    func todoListAlert(vc: UIViewController, date: Date) {
-        let mainTitle = ChangeFont().mainTitle(title: "할일을 추가해주세요!")
-        let date = ChangeFormmater().chagneFormmater(date: date)
-        let alert = UIAlertController(title: "할일을 추가해주세요!", message: nil, preferredStyle: .alert)
+
+    func deletAlert(vc: UIViewController, documentId: String) {
+        let mainTitle = ChangeFont().mainTitle(title: "정말 삭제 하겠습니까?")
+        let alert = UIAlertController(title: "정말 삭제 하겠습니까?", message: nil, preferredStyle: .alert)
         alert.setValue(mainTitle, forKey: "attributedTitle")
         let cancleButton = UIAlertAction(title: "취소", style: .cancel)
-        let saveButton = UIAlertAction(title: "저장", style: .default) { _ in
-            //TODO: Date를 받아와 해당 도큐먼트에 todo 추가
-            print(alert.textFields?[0].text)
-        }
-        alert.addTextField { textField in
-            textField.placeholder = "오늘의 할일은?"
+        let saveButton = UIAlertAction(title: "삭제", style: .default) { _ in
+            //TODO: DB에서 삭제
+            DatabaseService().removeDB(documentId: documentId)
         }
         cancleButton.setValue(UIColor.red, forKey: "titleTextColor")
         saveButton.setValue(UIColor.black, forKey: "titleTextColor")

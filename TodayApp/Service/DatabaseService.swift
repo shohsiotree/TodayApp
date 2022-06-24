@@ -32,7 +32,6 @@ class DatabaseService {
                     if document.documentID.contains(date) {
                         let dd = document.data() as? [String: [String:Any]]
                         let aa: Array = [String](dd!.keys)
-                        print(aa[0])
                         let documnetId = document.documentID
                         let a = document[aa[0]] as! [String: Any]
                         let todoText = a["todoText"] as! String
@@ -89,9 +88,9 @@ class DatabaseService {
     }
     //TODO: Edit눌러 삭제 시, 해당 날짜를 가진 Collection 업데이트 (삭제)
     //TODO: todoList 삭제 (삭졔)
-    func removeDB(date: String) {
+    func removeDB(documentId: String) {
         guard let email = Auth.auth().currentUser?.email else { return }
-        db.collection(email).document(date).delete()
+        db.collection(email).document(documentId).delete()
     }
     //TODO: Logout 관련
 }

@@ -31,4 +31,8 @@ struct TodoDataViewModel {
     func todoOfCellIndex(index: Int) -> TodoDataModel {
         return todoM[index]!
     }
+    
+    func todoDocumentId(index:Int) -> String {
+        return todoM[index]!.documentId
+    }
 }

@@ -12,7 +12,8 @@ class EmptyCell: UITableViewCell {
     
     func updateDate() {
         let fomatter = DateFormatter()
-        fomatter.dateFormat = "yyyy년MM월dd일"
+        fomatter.dateFormat = "yy.MM.dd(EEEEE)"
+        fomatter.locale = Locale(identifier: "ko_KR")
         let today = fomatter.string(from: Date())
         self.DateText.text = today
     }

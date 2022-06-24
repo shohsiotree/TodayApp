@@ -20,7 +20,6 @@
 		E60BB4E12858837300781E84 /* TodayAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4E02858837300781E84 /* TodayAppUITests.swift */; };
 		E60BB4E32858837300781E84 /* TodayAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4E22858837300781E84 /* TodayAppUITestsLaunchTests.swift */; };
 		E60BB4F02858855A00781E84 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4EF2858855A00781E84 /* SignInVC.swift */; };
-		E60BB4F22858856300781E84 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4F12858856300781E84 /* MainVC.swift */; };
 		E60BB4FA285955E200781E84 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4F9285955E200781E84 /* PostVC.swift */; };
 		E60BB4FC285955E900781E84 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4FB285955E900781E84 /* AddVC.swift */; };
 		E60BB4FE285955F200781E84 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB4FD285955F200781E84 /* SettingVC.swift */; };
@@ -45,7 +44,7 @@
 		E6C3F4A528600053000497AE /* ChangeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4A428600053000497AE /* ChangeFont.swift */; };
 		E6C3F4A72860082D000497AE /* ChangeFormmater.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4A62860082D000497AE /* ChangeFormmater.swift */; };
 		E6C3F4A9286035FB000497AE /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4A8286035FB000497AE /* TitleCell.swift */; };
-		E6C3F4AB286149AE000497AE /* ExVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4AA286149AE000497AE /* ExVC.swift */; };
+		E6C3F4AB286149AE000497AE /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4AA286149AE000497AE /* MainVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,7 +88,6 @@
 		E60BB4E02858837300781E84 /* TodayAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppUITests.swift; sourceTree = "<group>"; };
 		E60BB4E22858837300781E84 /* TodayAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E60BB4EF2858855A00781E84 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
-		E60BB4F12858856300781E84 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		E60BB4F9285955E200781E84 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		E60BB4FB285955E900781E84 /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
 		E60BB4FD285955F200781E84 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
@@ -110,7 +108,7 @@
 		E6C3F4A428600053000497AE /* ChangeFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFont.swift; sourceTree = "<group>"; };
 		E6C3F4A62860082D000497AE /* ChangeFormmater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFormmater.swift; sourceTree = "<group>"; };
 		E6C3F4A8286035FB000497AE /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TitleCell.swift; path = ../../../TitleCell.swift; sourceTree = "<group>"; };
-		E6C3F4AA286149AE000497AE /* ExVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExVC.swift; sourceTree = "<group>"; };
+		E6C3F4AA286149AE000497AE /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,7 +225,6 @@
 			children = (
 				E60BB4F42859559600781E84 /* Login&Join */,
 				E60BB4F5285955A400781E84 /* Main */,
-				E6C3F4AA286149AE000497AE /* ExVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -246,7 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				E60BB4FB285955E900781E84 /* AddVC.swift */,
-				E60BB4F12858856300781E84 /* MainVC.swift */,
+				E6C3F4AA286149AE000497AE /* MainVC.swift */,
 				E60BB4F9285955E200781E84 /* PostVC.swift */,
 				E60BB4FD285955F200781E84 /* SettingVC.swift */,
 			);
@@ -574,13 +571,12 @@
 				E60BB4FA285955E200781E84 /* PostVC.swift in Sources */,
 				E6263288285C536800B1AFEF /* TodoDataModel.swift in Sources */,
 				E639803E285B254500347E87 /* IntroVC.swift in Sources */,
-				E6C3F4AB286149AE000497AE /* ExVC.swift in Sources */,
+				E6C3F4AB286149AE000497AE /* MainVC.swift in Sources */,
 				E639803A285B192100347E87 /* CheckVaild.swift in Sources */,
 				E6C3F4A9286035FB000497AE /* TitleCell.swift in Sources */,
 				E60BB50F2859618700781E84 /* EditButton.swift in Sources */,
 				E60BB4FE285955F200781E84 /* SettingVC.swift in Sources */,
 				E60BB4F02858855A00781E84 /* SignInVC.swift in Sources */,
-				E60BB4F22858856300781E84 /* MainVC.swift in Sources */,
 				E6263281285C51D200B1AFEF /* DateCell.swift in Sources */,
 				E626328A285C53F800B1AFEF /* TodoDataViewModel.swift in Sources */,
 				E6C3F4A528600053000497AE /* ChangeFont.swift in Sources */,
