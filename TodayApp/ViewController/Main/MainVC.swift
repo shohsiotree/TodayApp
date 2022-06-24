@@ -70,11 +70,3 @@ extension MainVC: ReloadDelegate {
         self.tableView.reloadData()
     }
 }
-/*
- @IBAction func logoutButton(_ sender: Any) {
- try? Auth.auth().signOut()
- guard let vc = storyboard?.instantiateViewController(withIdentifier: "LoginVC") else { return }
- vc.modalPresentationStyle = .fullScreen
- self.present(vc, animated: true)
- }
- */

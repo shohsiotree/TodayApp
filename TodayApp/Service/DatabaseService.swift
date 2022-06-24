@@ -19,21 +19,79 @@ class DatabaseService {
     }
     
     //TODO: MainVC 진입 시, Email Collection을 제외 한 Collection, Document 불러오기 -> Main 및 전체 게시글 보기 (로드)
-    func HomeLoadData(table: UITableView ,completion: @escaping ([TodoDataModel]) -> ()) {
+    func homeLoadData(table: UITableView, date: String,  completion: @escaping ([TodoDataModel?]) -> ()) {
         guard let email = Auth.auth().currentUser?.email else { return }
         var todoM: TodoDataModel?
         var arrtodoM = [todoM]
-        self.db.collection(email).addSnapshotListener {(querySnapshot, err) in
+        db.collection(email).addSnapshotListener {(querySnapshot, err) in
+            arrtodoM.removeAll()
             guard let querySnapshot = querySnapshot else { return }
+            
             for document in querySnapshot.documents {
                 if document.documentID != "UserData" {
-                    
+                    if document.documentID.contains(date) {
+                        let dd = document.data() as? [String: [String:Any]]
+                        let aa: Array = [String](dd!.keys)
+                        print(aa[0])
+                        let documnetId = document.documentID
+                        let a = document[aa[0]] as! [String: Any]
+                        let todoText = a["todoText"] as! String
+                        let isAlarm = a["isAlarm"] as! String
+                        let isDone = a["isDone"] as! Bool
+                        todoM = TodoDataModel(documentId: documnetId, todoText: todoText, isAlarm: isAlarm, isDone: isDone)
+                        arrtodoM.append(todoM)
+                    }
                 }
             }
+            completion(arrtodoM)
+            table.reloadData()
         }
     }
     //TODO: today Collection이 없으면, "+"으로 생성 시, CollectionName = today(생성, 추가)
+    func createTodoListDB(date: Date, todoText: String, isAlarm: String, table: UITableView) {
+        guard let email = Auth.auth().currentUser?.email else { return }
+        let random = arc4random_uniform(999999999)
+        let field = [ "todoText": todoText, "isAlarm": isAlarm,"isDone": false] as [String : Any]
+        let documentId = ChangeFormmater().chagneFormmater(date: date)
+        db.collection(email).document("\(documentId)\(random)").setData([
+            "1" : field,
+        ]) { err in
+            guard err == nil else {
+                return print("createDB err: \(err!)")
+            }
+            print("createDB Success")
+        }
+        table.reloadData()
+    }
+    
+    //TODO: today collection이 있으면, append 하여 추가 (업데이트)
+    func updateTodoListDB(date: Date, number: Int, todoText: String, isAlarm: String, isDone: Bool, table: UITableView) {
+        guard let email = Auth.auth().currentUser?.email else { return }
+        let random = arc4random_uniform(999999999)
+        let field = [ "todoText": todoText, "isAlarm": isAlarm,"isDone": false] as [String : Any]
+        let documentId = ChangeFormmater().chagneFormmater(date: date)
+        db.collection(email).document("\(documentId)\(random)").setData([
+            "\(number)": field
+        ])
+        table.reloadData()
+    }
     //TODO: didSelect 시, IsDone 값 변경 (업데이트)
-    //TODO: Edit눌러 삭제 시, 해당 날짜를 가진 Collection 업데이트 (삭제)'
+    func didSelectTodoListDB(date: Date, number: Int, todoText: String, isAlarm: String, isDone: Bool, table: UITableView) {
+        guard let email = Auth.auth().currentUser?.email else { return }
+        let documentId = ChangeFormmater().chagneFormmater(date: Date())
+        db.collection(email).document(documentId).updateData([
+            "number": number,
+            "todoText": todoText,
+            "isAlarm": isAlarm,
+            "isDone": isDone
+        ])
+        table.reloadData()
+    }
+    //TODO: Edit눌러 삭제 시, 해당 날짜를 가진 Collection 업데이트 (삭제)
+    //TODO: todoList 삭제 (삭졔)
+    func removeDB(date: String) {
+        guard let email = Auth.auth().currentUser?.email else { return }
+        db.collection(email).document(date).delete()
+    }
     //TODO: Logout 관련
 }

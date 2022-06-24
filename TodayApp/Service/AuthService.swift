@@ -12,6 +12,7 @@ class AuthService {
     func signInAuth(email: String, password: String,vc: SignInVC) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, err in
             if err == nil {
+                DatabaseService().signInDB(email: email, pwd: password)
                 vc.delegate?.fillData(email: email)
                 vc.emailText.text = ""
                 vc.passwordText.text = ""

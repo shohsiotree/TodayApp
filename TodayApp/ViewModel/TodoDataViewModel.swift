@@ -8,13 +8,27 @@
 import Foundation
 
 struct TodoDataViewModel {
-    var TodoM: [TodoDataModel]
+    var todoM: [TodoDataModel?]
     
-    func todoCount() -> Int {
-        return TodoM.count
+    func numberOfRowsInSection() -> Int {
+        return todoM.count
+    }
+    
+    func todoNumberCount() -> Int {
+        var dbID: Int = 0
+        if todoM.count > 0 {
+            for i in 0...todoM.count-1 {
+                if self.todoM[i]!.documentId != "" {
+                    dbID += 1
+                }
+            }
+            return dbID
+        } else {
+            return 0
+        }
     }
     
     func todoOfCellIndex(index: Int) -> TodoDataModel {
-        return TodoM[index]
+        return todoM[index]!
     }
 }

@@ -148,7 +148,7 @@
             </objects>
             <point key="canvasLocation" x="773.91304347826087" y="-174.10714285714286"/>
         </scene>
-        <!--ExVC-->
+        <!--title-->
         <scene sceneID="KN1-B1-bme">
             <objects>
                 <viewController id="J3X-y7-Ckk" customClass="ExVC" customModule="TodayApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -236,9 +236,11 @@
                                     <constraint firstAttribute="height" constant="80" id="t6E-64-6s9"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6k8-YL-8vW">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6k8-YL-8vW">
                                 <rect key="frame" x="20" y="108" width="374" height="668"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
+                                <color key="separatorColor" systemColor="labelColor"/>
+                                <color key="sectionIndexColor" name="BackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" name="BackgroundColor"/>
                                 <color key="sectionIndexTrackingBackgroundColor" name="BackgroundColor"/>
                                 <prototypes>
@@ -328,23 +330,43 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="BackgroundColor"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoCell" textLabel="XMu-6w-nQZ" rowHeight="41" style="IBUITableViewCellStyleDefault" id="PLj-3m-qfW">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoCell" rowHeight="41" id="PLj-3m-qfW" customClass="TodoCell" customModule="TodayApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="376.5" width="374" height="41"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PLj-3m-qfW" id="WkB-BO-vlf">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="할일리스트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XMu-6w-nQZ">
-                                                    <rect key="frame" x="20" y="0.0" width="334" height="41"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3YA-is-ghh">
+                                                    <rect key="frame" x="5" y="10" width="364" height="31"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCv-wx-des">
+                                                            <rect key="frame" x="0.0" y="0.0" width="311" height="31"/>
+                                                            <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Skr-f7-ikX">
+                                                            <rect key="frame" x="311" y="0.0" width="53" height="31"/>
+                                                            <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3YA-is-ghh" firstAttribute="top" secondItem="WkB-BO-vlf" secondAttribute="top" constant="10" id="S21-v0-qT7"/>
+                                                <constraint firstAttribute="trailing" secondItem="3YA-is-ghh" secondAttribute="trailing" constant="5" id="SUP-IN-edh"/>
+                                                <constraint firstAttribute="bottom" secondItem="3YA-is-ghh" secondAttribute="bottom" id="Uo1-Hb-gZm"/>
+                                                <constraint firstItem="3YA-is-ghh" firstAttribute="leading" secondItem="WkB-BO-vlf" secondAttribute="leading" constant="5" id="X32-Td-9KO"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="BackgroundColor"/>
+                                        <connections>
+                                            <outlet property="alarmText" destination="Skr-f7-ikX" id="4IM-mj-aW6"/>
+                                            <outlet property="todoText" destination="eCv-wx-des" id="BHE-TA-m99"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -370,7 +392,13 @@
                             <outletCollection property="gestureRecognizers" destination="R6U-iP-Wa9" appends="YES" id="spN-k6-c4e"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="SKs-vw-lkb"/>
+                    <navigationItem key="navigationItem" title="title" id="SKs-vw-lkb">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="msk-9o-NFi">
+                            <connections>
+                                <action selector="logoutButton:" destination="J3X-y7-Ckk" id="1L5-zz-fPc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="Jap-Oy-dYY" id="iMk-2X-qj2"/>
                         <outlet property="alarmButton" destination="9E8-bp-3aK" id="hu5-ae-7NA"/>
@@ -660,6 +688,9 @@
     <designables>
         <designable name="A2E-an-5CQ">
             <size key="intrinsicContentSize" width="99" height="38"/>
+        </designable>
+        <designable name="Jap-Oy-dYY">
+            <size key="intrinsicContentSize" width="55.5" height="64"/>
         </designable>
         <designable name="l29-q1-WJp">
             <size key="intrinsicContentSize" width="65.5" height="32"/>

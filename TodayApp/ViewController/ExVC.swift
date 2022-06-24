@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ExVC: UIViewController {
     
@@ -22,9 +23,12 @@ class ExVC: UIViewController {
     
     var keyHeight: CGFloat?
     var numberOfCount = 1
+    var todoViewModel: TodoDataViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title =  dateString()
+        self.loadData()
         self.stackHeight.constant = 0.0
         self.tableView.clipsToBounds = true
         self.tableView.dataSource = self
@@ -117,7 +121,8 @@ class ExVC: UIViewController {
     
     func dateString() -> String {
         let formmater = DateFormatter()
-        formmater.dateFormat = "YYYY년 MM월 dd일"
+        formmater.dateFormat = "yy.MM.dd(EEEEE)"
+        formmater.locale = Locale(identifier: "ko_KR")
         return formmater.string(from: Date())
     }
     
@@ -125,7 +130,16 @@ class ExVC: UIViewController {
         if !self.textField.text!.isEmpty {
             guard let text = self.textField.text else { return }
             guard let alarm = self.alarmText.text else { return }
+            
+            let todayAlarm = alarm != "" ? alarm : ""
             let nowDate = dateString()
+            guard let numbers = self.todoViewModel?.todoNumberCount() else { return }
+            
+            if numbers != 0 {
+                DatabaseService().updateTodoListDB(date: Date(), number: numbers+1, todoText: text, isAlarm: todayAlarm, isDone: false, table: self.tableView)
+            } else {
+                DatabaseService().createTodoListDB(date: Date(), todoText: text, isAlarm: todayAlarm, table: self.tableView)
+            }
             
             UIView.animate(withDuration: 0.5) {
                 self.stackHeight.constant = 0.0
@@ -138,19 +152,60 @@ class ExVC: UIViewController {
             }
             print("alarm: \(alarm), text: \(text), now: \(nowDate)")
         }
+        self.tableView.reloadData()
     }
+    
+    private func loadData() {
+        let nowDate = dateString()
+        DispatchQueue.main.async {
+            DatabaseService().homeLoadData(table: self.tableView,date: nowDate) { model in
+                self.todoViewModel = TodoDataViewModel(todoM: model)
+            }
+        }
+    }
+    
+    @objc func reloadTable() {
+        
+    }
+    
+    @IBAction func logoutButton(_ sender: Any) {
+        try? Auth.auth().signOut()
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "LoginVC") else { return }
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+    }
+    
 }
 
 extension ExVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.numberOfCount
+        if self.todoViewModel != nil {
+            if  self.todoViewModel.numberOfRowsInSection() == 0 {
+                return 1
+            } else {
+                return self.todoViewModel.numberOfRowsInSection()
+            }
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath)
-        return cell
+        if self.todoViewModel.numberOfRowsInSection() == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath) as! TodoCell
+            cell.updateTodo(todoData: self.todoViewModel.todoOfCellIndex(index: indexPath.row))
+            return cell
+        }
+        
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(UIScreen.main.bounds.height / 2 - 50)
+        if self.todoViewModel.numberOfRowsInSection() == 0 {
+            return CGFloat(UIScreen.main.bounds.height / 2 - 50)
+        } else {
+            return CGFloat(UIScreen.main.bounds.height / 7)
+        }
     }
 }
