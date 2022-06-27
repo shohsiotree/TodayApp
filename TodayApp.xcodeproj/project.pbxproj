@@ -41,6 +41,7 @@
 		E639803A285B192100347E87 /* CheckVaild.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6398039285B192100347E87 /* CheckVaild.swift */; };
 		E639803E285B254500347E87 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E639803D285B254500347E87 /* IntroVC.swift */; };
 		E6398040285B265300347E87 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E639803F285B265300347E87 /* AppManager.swift */; };
+		E6A0062128694497007F2C14 /* EXVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A0062028694497007F2C14 /* EXVC.swift */; };
 		E6C3F4A528600053000497AE /* ChangeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4A428600053000497AE /* ChangeFont.swift */; };
 		E6C3F4A72860082D000497AE /* ChangeFormmater.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4A62860082D000497AE /* ChangeFormmater.swift */; };
 		E6C3F4A9286035FB000497AE /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4A8286035FB000497AE /* TitleCell.swift */; };
@@ -105,6 +106,7 @@
 		E6398039285B192100347E87 /* CheckVaild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckVaild.swift; sourceTree = "<group>"; };
 		E639803D285B254500347E87 /* IntroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
 		E639803F285B265300347E87 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		E6A0062028694497007F2C14 /* EXVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EXVC.swift; path = TodayApp/ViewController/EXVC.swift; sourceTree = SOURCE_ROOT; };
 		E6C3F4A428600053000497AE /* ChangeFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFont.swift; sourceTree = "<group>"; };
 		E6C3F4A62860082D000497AE /* ChangeFormmater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFormmater.swift; sourceTree = "<group>"; };
 		E6C3F4A8286035FB000497AE /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TitleCell.swift; path = ../../../TitleCell.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				E6C3F4AA286149AE000497AE /* MainVC.swift */,
 				E60BB4F9285955E200781E84 /* PostVC.swift */,
 				E60BB4FD285955F200781E84 /* SettingVC.swift */,
+				E6A0062028694497007F2C14 /* EXVC.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				E626328D285C58D200B1AFEF /* DatabaseService.swift in Sources */,
 				E60BB4C22858837000781E84 /* SceneDelegate.swift in Sources */,
 				E6C3F4A72860082D000497AE /* ChangeFormmater.swift in Sources */,
+				E6A0062128694497007F2C14 /* EXVC.swift in Sources */,
 				E6398036285B03D500347E87 /* CustomAlert.swift in Sources */,
 				E6398038285B0B6100347E87 /* AuthService.swift in Sources */,
 				E6263283285C51FA00B1AFEF /* TodoCell.swift in Sources */,

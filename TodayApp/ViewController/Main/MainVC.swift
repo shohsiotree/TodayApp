@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-//TODO: 키보드 이모지 눌렀을 떄, 키보드 height 정리
+@available(iOS 15.0, *)
 class MainVC: UIViewController {
     
     @IBOutlet weak var toolbarStack: UIStackView!
@@ -22,6 +22,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var timePickerHeight: NSLayoutConstraint!
     @IBOutlet weak var alarmButton: UIButton!
     @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var bottomStackView: UIStackView!
     
     var keyHeight: CGFloat?
     var numberOfCount = 1
@@ -32,22 +33,25 @@ class MainVC: UIViewController {
         self.navigationItem.title =  dateString()
         self.loadData()
         self.stackHeight.constant = 0.0
+        self.toolbarStack.frame.size.height = 0.0
         self.tableView.clipsToBounds = true
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.textField.delegate = self
         self.alarmText.text = ""
+        self.bottomStackView.isHidden = true
         self.timePicker.backgroundColor = UIColor(named: "BackgroundColor")
         self.timePicker.tintColor = .black
         self.view.bringSubviewToFront(self.addButton)
         self.view.bringSubviewToFront(self.timePicker)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        self.view.keyboardLayoutGuide.topAnchor.constraint(equalTo: self.toolbarStack.bottomAnchor).isActive = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
         self.tableView.endEditing(true)
         if self.stackHeight.constant == 80.0 {
+            self.bottomStackView.isHidden = true
             UIView.animate(withDuration: 0.5) {
                 self.stackHeight.constant = 0.0
                 self.tableView.clipsToBounds = true
@@ -70,21 +74,6 @@ class MainVC: UIViewController {
             self.timePicker.alpha = 0
             self.alarmButton.setTitle("알람", for: .normal)
         }
-    }
-    
-    @objc func keyboardWillShow(_ sender: Notification) {
-        let userInfo:NSDictionary = sender.userInfo! as NSDictionary
-        let keyboardFrame:NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue
-        let keyboardRectangle = keyboardFrame.cgRectValue
-        let keyboardHeight = keyboardRectangle.height
-        self.keyHeight = keyboardHeight
-        self.tableView.frame.size.height -= keyboardHeight
-        self.view.frame.size.height -= keyboardHeight
-    }
-    
-    @objc func keyboardWillHide(_ sender: Notification) {
-        self.tableView.frame.size.height += self.keyHeight!
-        self.view.frame.size.height += self.keyHeight!
     }
     
     @objc func reloadTable() {
@@ -116,6 +105,7 @@ class MainVC: UIViewController {
     @IBAction func tapAddButton(_ sender: Any) {
         if self.stackHeight.constant == 0.0 {
             UIView.animate(withDuration: 0.5) {
+                self.bottomStackView.isHidden = false
                 self.stackHeight.constant = 80.0
                 self.tableView.clipsToBounds = true
                 self.addButton.isHidden = true
@@ -140,7 +130,7 @@ class MainVC: UIViewController {
             }
         }
     }
-
+    
     @IBAction func tapSaveButton(_ sender: Any) {
         if !self.textField.text!.isEmpty {
             guard let text = self.textField.text else { return }
@@ -181,6 +171,8 @@ class MainVC: UIViewController {
     }
 }
 
+//MARK: TableView DataSource, Delegate
+@available(iOS 15.0, *)
 extension MainVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.todoViewModel != nil {
@@ -233,5 +225,23 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             CustomAlert().deletAlert(vc: self,documentId: self.todoViewModel.todoDocumentId(index: indexPath.row))
         }
+    }
+}
+
+//MARK: TextFieldDelagte
+@available(iOS 15.0, *)
+extension MainVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        self.bottomStackView.isHidden = true
+        UIView.animate(withDuration: 0.5) {
+            self.stackHeight.constant = 0.0
+            self.tableView.clipsToBounds = true
+            self.addButton.isHidden = false
+            self.textField.text = ""
+            self.alarmText.text = ""
+            self.timePicker.alpha = 0
+        }
+        return true
     }
 }
