@@ -17,8 +17,9 @@ class PostVC: UIViewController {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        DatabaseService().postLoadData(table: self.tableView, date: self.dateString()) { model in
-            print(model)
+        DatabaseService().postLoadData(table: self.tableView, date: self.dateString()) { document,str  in
+            print(document)
+            print(str)
         }
     }
     

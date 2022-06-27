@@ -32,7 +32,6 @@ class DatabaseService {
                     if document.documentID == date {
                         let dd = document.data() as? [String: [String:Any]]
                         let aa: Array = [String](dd!.keys)
-                        print(aa)
                         let documnetId = document.documentID
                         for i in 0..<aa.count {
                             let a = document[aa[i]] as! [String: Any]
@@ -97,32 +96,27 @@ class DatabaseService {
     }
     //TODO: Logout 관련
     //TODO: PostVC 전체적으로 나오기
-    func postLoadData(table: UITableView, date: String,  completion: @escaping ([TodoDataModel?]) -> ()) {
+    func postLoadData(table: UITableView, date: String,  completion: @escaping ([String],[String]) -> ()) {
         guard let email = Auth.auth().currentUser?.email else { return }
-        var todoM: TodoDataModel?
-        var arrtodoM = [todoM]
+        var strArr = [String]()
+        var documentArr = [String]()
+        
         db.collection(email).addSnapshotListener {(querySnapshot, err) in
-            arrtodoM.removeAll()
             guard let querySnapshot = querySnapshot else { return }
             
             for document in querySnapshot.documents {
                 if document.documentID != "UserData" {
-                    let dd = document.data() as? [String: [String:Any]]
-                    let aa: Array = [String](dd!.keys)
-                    let documnetId = document.documentID
-                    for i in 0..<aa.count {
-                        let a = document[aa[i]] as! [String: Any]
-                        let todoText = a["todoText"] as! String
-                        let isAlarm = a["isAlarm"] as! String
-                        let isDone = a["isDone"] as! Bool
-                        let uploadTime = a["uploadTime"] as! String
-                        todoM = TodoDataModel(documentId: documnetId, todoText: todoText, isAlarm: isAlarm, isDone: isDone, uploadTime: uploadTime)
-                        arrtodoM.append(todoM)
+                    documentArr.append(document.documentID)
+                    let a = document.data() as! [String: [String: Any]]
+                    let b = a.keys
+                    for i in b {
+                        guard let c = a[i]!["todoText"] as? String else { return }
+                        strArr.append(c)
                     }
                 }
             }
             //TODO: 특정 값을 가지고 비교 해서 sorted 하기
-            completion(arrtodoM)
+            completion(documentArr, strArr)
             table.reloadData()
         }
     }
