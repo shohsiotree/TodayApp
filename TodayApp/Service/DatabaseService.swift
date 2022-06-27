@@ -29,17 +29,20 @@ class DatabaseService {
             
             for document in querySnapshot.documents {
                 if document.documentID != "UserData" {
-                    if document.documentID.contains(date) {
+                    if document.documentID == date {
                         let dd = document.data() as? [String: [String:Any]]
                         let aa: Array = [String](dd!.keys)
+                        print(aa)
                         let documnetId = document.documentID
-                        let a = document[aa[0]] as! [String: Any]
-                        let todoText = a["todoText"] as! String
-                        let isAlarm = a["isAlarm"] as! String
-                        let isDone = a["isDone"] as! Bool
-                        let uploadTime = a["uploadTime"] as! String
-                        todoM = TodoDataModel(documentId: documnetId, todoText: todoText, isAlarm: isAlarm, isDone: isDone, uploadTime: uploadTime)
-                        arrtodoM.append(todoM)
+                        for i in 0..<aa.count {
+                            let a = document[aa[i]] as! [String: Any]
+                            let todoText = a["todoText"] as! String
+                            let isAlarm = a["isAlarm"] as! String
+                            let isDone = a["isDone"] as! Bool
+                            let uploadTime = a["uploadTime"] as! String
+                            todoM = TodoDataModel(documentId: documnetId, todoText: todoText, isAlarm: isAlarm, isDone: isDone, uploadTime: uploadTime)
+                            arrtodoM.append(todoM)
+                        }
                     }
                 }
             }
@@ -54,8 +57,8 @@ class DatabaseService {
         let random = arc4random_uniform(999999999)
         let field = [ "todoText": todoText, "isAlarm": isAlarm,"isDone": false, "uploadTime": uploadTime] as [String : Any]
         let documentId = ChangeFormmater().chagneFormmater(date: date)
-        db.collection(email).document("\(documentId)\(random)").setData([
-            "0" : field,
+        db.collection(email).document(documentId).setData([
+            "\(random)" : field,
         ]) { err in
             guard err == nil else {
                 return print("createDB err: \(err!)")
@@ -71,9 +74,9 @@ class DatabaseService {
         let random = arc4random_uniform(999999999)
         let field = [ "todoText": todoText, "isAlarm": isAlarm,"isDone": false, "uploadTime": uploadTime] as [String : Any]
         let documentId = ChangeFormmater().chagneFormmater(date: date)
-        db.collection(email).document("\(documentId)\(random)").setData([
-            "\(number)": field
-        ])
+        db.collection(email).document(documentId).setData([
+            "\(random)": field
+        ], merge: true)
         table.reloadData()
     }
     //TODO: didSelect 시, IsDone 값 변경 (업데이트)
@@ -93,4 +96,34 @@ class DatabaseService {
         db.collection(email).document(documentId).delete()
     }
     //TODO: Logout 관련
+    //TODO: PostVC 전체적으로 나오기
+    func postLoadData(table: UITableView, date: String,  completion: @escaping ([TodoDataModel?]) -> ()) {
+        guard let email = Auth.auth().currentUser?.email else { return }
+        var todoM: TodoDataModel?
+        var arrtodoM = [todoM]
+        db.collection(email).addSnapshotListener {(querySnapshot, err) in
+            arrtodoM.removeAll()
+            guard let querySnapshot = querySnapshot else { return }
+            
+            for document in querySnapshot.documents {
+                if document.documentID != "UserData" {
+                    let dd = document.data() as? [String: [String:Any]]
+                    let aa: Array = [String](dd!.keys)
+                    let documnetId = document.documentID
+                    for i in 0..<aa.count {
+                        let a = document[aa[i]] as! [String: Any]
+                        let todoText = a["todoText"] as! String
+                        let isAlarm = a["isAlarm"] as! String
+                        let isDone = a["isDone"] as! Bool
+                        let uploadTime = a["uploadTime"] as! String
+                        todoM = TodoDataModel(documentId: documnetId, todoText: todoText, isAlarm: isAlarm, isDone: isDone, uploadTime: uploadTime)
+                        arrtodoM.append(todoM)
+                    }
+                }
+            }
+            //TODO: 특정 값을 가지고 비교 해서 sorted 하기
+            completion(arrtodoM)
+            table.reloadData()
+        }
+    }
 }
