@@ -42,6 +42,7 @@
 		E639803E285B254500347E87 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E639803D285B254500347E87 /* IntroVC.swift */; };
 		E6398040285B265300347E87 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E639803F285B265300347E87 /* AppManager.swift */; };
 		E6A0062128694497007F2C14 /* EXVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A0062028694497007F2C14 /* EXVC.swift */; };
+		E6A00623286A949F007F2C14 /* basicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A00622286A949F007F2C14 /* basicCell.swift */; };
 		E6C3F4A528600053000497AE /* ChangeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4A428600053000497AE /* ChangeFont.swift */; };
 		E6C3F4A72860082D000497AE /* ChangeFormmater.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4A62860082D000497AE /* ChangeFormmater.swift */; };
 		E6C3F4A9286035FB000497AE /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4A8286035FB000497AE /* TitleCell.swift */; };
@@ -107,6 +108,7 @@
 		E639803D285B254500347E87 /* IntroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
 		E639803F285B265300347E87 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		E6A0062028694497007F2C14 /* EXVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EXVC.swift; path = TodayApp/ViewController/EXVC.swift; sourceTree = SOURCE_ROOT; };
+		E6A00622286A949F007F2C14 /* basicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = basicCell.swift; sourceTree = "<group>"; };
 		E6C3F4A428600053000497AE /* ChangeFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFont.swift; sourceTree = "<group>"; };
 		E6C3F4A62860082D000497AE /* ChangeFormmater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFormmater.swift; sourceTree = "<group>"; };
 		E6C3F4A8286035FB000497AE /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TitleCell.swift; path = ../../../TitleCell.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				E6263284285C520300B1AFEF /* EmptyCell.swift */,
 				E6263282285C51FA00B1AFEF /* TodoCell.swift */,
 				E6C3F4A8286035FB000497AE /* TitleCell.swift */,
+				E6A00622286A949F007F2C14 /* basicCell.swift */,
 			);
 			name = MainCell;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				E6C3F4A528600053000497AE /* ChangeFont.swift in Sources */,
 				E60BB4C42858837000781E84 /* LoginVC.swift in Sources */,
 				E6263285285C520300B1AFEF /* EmptyCell.swift in Sources */,
+				E6A00623286A949F007F2C14 /* basicCell.swift in Sources */,
 				E60BB4C02858837000781E84 /* AppDelegate.swift in Sources */,
 				E60BB4FC285955E900781E84 /* AddVC.swift in Sources */,
 				E626328D285C58D200B1AFEF /* DatabaseService.swift in Sources */,

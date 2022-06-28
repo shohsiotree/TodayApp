@@ -433,13 +433,30 @@
                                 <rect key="frame" x="10" y="98" width="394" height="705"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="OqO-eY-zKZ">
-                                        <rect key="frame" x="0.0" y="44.5" width="394" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="basicCell" id="OqO-eY-zKZ" customClass="basicCell" customModule="TodayApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="394" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OqO-eY-zKZ" id="lCg-3C-zal">
-                                            <rect key="frame" x="0.0" y="0.0" width="394" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAp-ee-6eN">
+                                                    <rect key="frame" x="20" y="11" width="354" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BAp-ee-6eN" firstAttribute="top" secondItem="lCg-3C-zal" secondAttribute="topMargin" id="99D-Ge-8f3"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="BAp-ee-6eN" secondAttribute="trailing" id="KeV-UE-WnI"/>
+                                                <constraint firstItem="BAp-ee-6eN" firstAttribute="leading" secondItem="lCg-3C-zal" secondAttribute="leadingMargin" id="Mih-DR-Oku"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BAp-ee-6eN" secondAttribute="bottom" id="ZVZ-fs-ln2"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="todoText" destination="BAp-ee-6eN" id="zX0-Zg-i0A"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

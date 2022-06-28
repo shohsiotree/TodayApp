@@ -22,7 +22,7 @@ class PostVC: UIViewController {
     }
     
     private func loadData() {
-        DatabaseService().postLoadData(table: self.tableView, date: self.dateString()) { document, strArr  in
+        DatabaseService().postLoadData(table: self.tableView) { document, strArr  in
             self.headerTitle = document
             self.strArr = strArr
         }
@@ -44,7 +44,9 @@ extension PostVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath) as! basicCell
+        cell.todoText.text = self.strArr[indexPath.section][indexPath.row]
+        return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

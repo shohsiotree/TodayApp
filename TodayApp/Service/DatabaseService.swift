@@ -93,7 +93,7 @@ class DatabaseService {
         db.collection(email).document(documentId).delete()
     }
     
-    func postLoadData(table: UITableView, date: String,  completion: @escaping ([String],[[String]]) -> ()) {
+    func postLoadData(table: UITableView, completion: @escaping ([String],[[String]]) -> ()) {
         guard let email = Auth.auth().currentUser?.email else { return }
         var strArr = [String]()
         var documentArr = [String]()
