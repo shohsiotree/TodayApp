@@ -149,6 +149,7 @@ class MainVC: UIViewController {
                 DatabaseService().createTodoListDB(date: Date(), todoText: text, isAlarm: todayAlarm, uploadTime: time, table: self.tableView)
             }
             
+            self.bottomStackView.isHidden = true
             UIView.animate(withDuration: 0.5) {
                 self.stackHeight.constant = 0.0
                 self.tableView.clipsToBounds = true

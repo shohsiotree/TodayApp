@@ -11,16 +11,22 @@ class PostVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var strArr = [String]()
+    var strArr = [[String]]()
+    var headerTitle = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        DatabaseService().postLoadData(table: self.tableView, date: self.dateString()) { document,str  in
-            print(document)
-            print(str)
+        self.loadData()
+    }
+    
+    private func loadData() {
+        DatabaseService().postLoadData(table: self.tableView, date: self.dateString()) { document, strArr  in
+            self.headerTitle = document
+            self.strArr = strArr
         }
+        self.tableView.reloadData()
     }
     
     private func dateString() -> String {
@@ -31,14 +37,21 @@ class PostVC: UIViewController {
     }
 }
 
+//TODO: headerCell -> document / normalCell -> strArr[i].count
 extension PostVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return  self.strArr[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.headerTitle.count
+    }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.headerTitle[section]
+    }
 }
