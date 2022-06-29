@@ -24,22 +24,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘                                                    까지" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Crt-ro-X8N">
-                                <rect key="frame" x="24" y="138" width="366" height="140"/>
+                                <rect key="frame" x="24" y="138" width="366" height="120"/>
                                 <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="60"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="yc8-P4-gnR">
-                                <rect key="frame" x="40" y="343" width="334" height="187"/>
+                                <rect key="frame" x="40" y="323" width="334" height="181"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lol-Gi-7uu">
-                                        <rect key="frame" x="0.0" y="0.0" width="52" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="18"/>
                                         <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="18"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ePX-oI-38z">
-                                        <rect key="frame" x="0.0" y="46" width="334" height="35"/>
+                                        <rect key="frame" x="0.0" y="43" width="334" height="35"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Rbc-Al-PIm">
                                                 <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
@@ -57,13 +57,13 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHJ-2G-yds">
-                                        <rect key="frame" x="0.0" y="106" width="67.5" height="21"/>
+                                        <rect key="frame" x="0.0" y="103" width="59" height="18"/>
                                         <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9tc-TM-u0d">
-                                        <rect key="frame" x="0.0" y="152" width="334" height="35"/>
+                                        <rect key="frame" x="0.0" y="146" width="334" height="35"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="T0T-0J-OaL">
                                                 <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
@@ -88,10 +88,10 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Fd4-Tl-6mV">
-                                <rect key="frame" x="30" y="600" width="354" height="35"/>
+                                <rect key="frame" x="30" y="574" width="354" height="32"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZA-lr-4oa" customClass="EditButton" customModule="TodayApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="172" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="172" height="32"/>
                                         <color key="backgroundColor" name="ButtonColor"/>
                                         <color key="tintColor" name="textColor"/>
                                         <state key="normal" title="Button"/>
@@ -106,7 +106,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l29-q1-WJp" customClass="EditButton" customModule="TodayApp" customModuleProvider="target">
-                                        <rect key="frame" x="182" y="0.0" width="172" height="35"/>
+                                        <rect key="frame" x="182" y="0.0" width="172" height="32"/>
                                         <color key="backgroundColor" name="ButtonColor"/>
                                         <color key="tintColor" name="textColor"/>
                                         <state key="normal" title="Button"/>
@@ -164,7 +164,7 @@
                                 <locale key="locale" localeIdentifier="ko"/>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jap-Oy-dYY" customClass="EditButton" customModule="TodayApp" customModuleProvider="target">
-                                <rect key="frame" x="325" y="705.5" width="54" height="72.5"/>
+                                <rect key="frame" x="323.5" y="714" width="55.5" height="64"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="+">
@@ -253,7 +253,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dj1-PN-ALi">
-                                                    <rect key="frame" x="318.5" y="5" width="50.5" height="31.5"/>
+                                                    <rect key="frame" x="319.5" y="5" width="49.5" height="29"/>
                                                     <color key="tintColor" systemColor="labelColor"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Edit">
@@ -291,24 +291,24 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="OA2-uA-4df">
-                                                    <rect key="frame" x="-5" y="39.5" width="384" height="164.5"/>
+                                                    <rect key="frame" x="9.5" y="47.5" width="355.5" height="148"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="22.06.06" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLL-Fd-603">
-                                                            <rect key="frame" x="143.5" y="0.0" width="97.5" height="29.5"/>
+                                                            <rect key="frame" x="126.5" y="0.0" width="102" height="25"/>
                                                             <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="25"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘까지 해야될 일이 추가되지 않았습니다" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4i-Ao-trv">
-                                                            <rect key="frame" x="0.0" y="47.5" width="384" height="27"/>
+                                                            <rect key="frame" x="0.0" y="43" width="355.5" height="23"/>
                                                             <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="23"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="bGw-Jx-pQx">
-                                                            <rect key="frame" x="63" y="92.5" width="258" height="27"/>
+                                                            <rect key="frame" x="56.5" y="84" width="242.5" height="23"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 버튼을 눌러 추가해주세요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C37-Uk-dPn">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="258" height="27"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="242.5" height="23"/>
                                                                     <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="23"/>
                                                                     <color key="textColor" name="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -316,7 +316,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="텅~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pC6-gH-DFb">
-                                                            <rect key="frame" x="175" y="137.5" width="34" height="27"/>
+                                                            <rect key="frame" x="160.5" y="125" width="34.5" height="23"/>
                                                             <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="23"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -345,13 +345,13 @@
                                                     <rect key="frame" x="5" y="10" width="364" height="31"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCv-wx-des">
-                                                            <rect key="frame" x="0.0" y="0.0" width="315" height="31"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="311" height="31"/>
                                                             <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="752" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Skr-f7-ikX">
-                                                            <rect key="frame" x="315" y="0.0" width="49" height="31"/>
+                                                            <rect key="frame" x="311" y="0.0" width="53" height="31"/>
                                                             <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -434,14 +434,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="basicCell" id="OqO-eY-zKZ" customClass="basicCell" customModule="TodayApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="394" height="43"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="394" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OqO-eY-zKZ" id="lCg-3C-zal">
-                                            <rect key="frame" x="0.0" y="0.0" width="394" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAp-ee-6eN">
-                                                    <rect key="frame" x="20" y="11" width="354" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="354" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -459,6 +459,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="acE-gd-TkN" id="bA1-HU-yCD"/>
+                                    <outlet property="delegate" destination="acE-gd-TkN" id="Qfs-ja-ipP"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7mt-2W-oTn"/>
@@ -488,22 +492,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원                                              가입" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mo3-A0-QiF">
-                                <rect key="frame" x="24" y="138" width="366" height="140"/>
+                                <rect key="frame" x="24" y="138" width="366" height="120"/>
                                 <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="60"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="T1z-80-Swo">
-                                <rect key="frame" x="24" y="302" width="366" height="293"/>
+                                <rect key="frame" x="24" y="282" width="366" height="284"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7G-xm-K18">
-                                        <rect key="frame" x="0.0" y="0.0" width="52" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="18"/>
                                         <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="18"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Eug-Pp-Kdc">
-                                        <rect key="frame" x="0.0" y="46" width="366" height="35"/>
+                                        <rect key="frame" x="0.0" y="43" width="366" height="35"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserIcon" translatesAutoresizingMaskIntoConstraints="NO" id="TkB-iT-z4k">
                                                 <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
@@ -521,13 +525,13 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvW-RX-rOC">
-                                        <rect key="frame" x="0.0" y="106" width="62.5" height="21"/>
+                                        <rect key="frame" x="0.0" y="103" width="54" height="18"/>
                                         <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qKu-QG-Pfo">
-                                        <rect key="frame" x="0.0" y="152" width="366" height="35"/>
+                                        <rect key="frame" x="0.0" y="146" width="366" height="35"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="GHb-zb-nGR">
                                                 <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
@@ -546,13 +550,13 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 재확인:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLG-mu-Tnr" userLabel="Re-Password:">
-                                        <rect key="frame" x="0.0" y="212" width="119" height="21"/>
+                                        <rect key="frame" x="0.0" y="206" width="107" height="18"/>
                                         <fontDescription key="fontDescription" name="LeeSeoyun" family="LeeSeoyun" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cIA-ry-BQo">
-                                        <rect key="frame" x="0.0" y="258" width="366" height="35"/>
+                                        <rect key="frame" x="0.0" y="249" width="366" height="35"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="hPG-Y3-Pcj">
                                                 <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
@@ -578,7 +582,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2E-an-5CQ" customClass="EditButton" customModule="TodayApp" customModuleProvider="target">
-                                <rect key="frame" x="40" y="633" width="334" height="42"/>
+                                <rect key="frame" x="40" y="608" width="334" height="38"/>
                                 <color key="backgroundColor" name="ButtonColor"/>
                                 <color key="tintColor" name="textColor"/>
                                 <state key="normal" title="Button"/>
@@ -736,16 +740,16 @@
     </scenes>
     <designables>
         <designable name="A2E-an-5CQ">
-            <size key="intrinsicContentSize" width="107.5" height="42"/>
+            <size key="intrinsicContentSize" width="99" height="38"/>
         </designable>
         <designable name="Jap-Oy-dYY">
-            <size key="intrinsicContentSize" width="54" height="72.5"/>
+            <size key="intrinsicContentSize" width="55.5" height="64"/>
         </designable>
         <designable name="l29-q1-WJp">
-            <size key="intrinsicContentSize" width="71" height="35"/>
+            <size key="intrinsicContentSize" width="65.5" height="32"/>
         </designable>
         <designable name="yZA-lr-4oa">
-            <size key="intrinsicContentSize" width="86.5" height="35"/>
+            <size key="intrinsicContentSize" width="80" height="32"/>
         </designable>
     </designables>
     <resources>

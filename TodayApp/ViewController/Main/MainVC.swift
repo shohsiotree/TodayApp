@@ -30,8 +30,12 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title =  dateString()
+        self.setup()
         self.loadData()
+    }
+    
+    private func setup() {
+        self.navigationItem.title =  dateString()
         self.stackHeight.constant = 0.0
         self.toolbarStack.frame.size.height = 0.0
         self.tableView.clipsToBounds = true
@@ -135,19 +139,17 @@ class MainVC: UIViewController {
         if !self.textField.text!.isEmpty {
             guard let text = self.textField.text else { return }
             guard let alarm = self.alarmText.text else { return }
-            
-            let todayAlarm = alarm != "" ? alarm : ""
             let nowDate = dateString()
-            guard let numbers = self.todoViewModel?.todoNumberCount() else { return }
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm:ss"
             formatter.locale = Locale(identifier: "ko_KR")
             let time = formatter.string(from: Date())
-            if numbers != 0 {
-                DatabaseService().updateTodoListDB(date: Date(), number: numbers+1, todoText: text, isAlarm: todayAlarm, isDone: false, uploadTime: time, table: self.tableView)
-            } else {
-                DatabaseService().createTodoListDB(date: Date(), todoText: text, isAlarm: todayAlarm, uploadTime: time, table: self.tableView)
+            
+            if self.todoViewModel.numberOfRowsInSection() == 0 {
+                DatabaseService().addDateDatabase(date: nowDate)
             }
+            
+            DatabaseService().createTodoListDB(date: Date(), todoText: text, isAlarm: alarm, uploadTime: time, table: self.tableView)
             
             self.bottomStackView.isHidden = true
             UIView.animate(withDuration: 0.5) {
