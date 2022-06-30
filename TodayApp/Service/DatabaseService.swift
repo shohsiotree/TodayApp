@@ -58,7 +58,7 @@ class DatabaseService {
                 "timeStamp": Date()])
     }
     
-    //TODO: didSelect 시, IsDone 값 변경 (업데이트)
+    //TODO: didSelect 시, IsDone 값 변경 (업데이트) -> didSelect 시 isDone 값 변경 수정(2022.06.30)
     func didSelectTodoListDB(date: Date, number: Int, todoText: String, isAlarm: String, isDone: Bool, uploadTime: String, table: UITableView) {
         guard let email = Auth.auth().currentUser?.email else { return }
         let documentId = ChangeFormmater().chagneFormmater(date: Date())
@@ -94,6 +94,7 @@ class DatabaseService {
             .collection("date")
             .order(by: "timeStamp", descending: false)
             .getDocuments { (querySnapshot, err) in
+                dateArr.removeAll()
                 guard let query = querySnapshot else { return }
                 for i in query.documents {
                     dateArr.append(i.data()["date"] as! String)
@@ -104,49 +105,22 @@ class DatabaseService {
     }
     
     //TODO: 날짜를 따로 데이터베이스에 추가 하는 걸 만들기 (할일 추가 시, 디비 생성 하나 더 추가로 해서 값을 뽑아 arr로 정리후 하단 화면처럼 하기
-    func postLoadData(date: [String], completion: @escaping ([[String]]) -> ()) {
+    func postLoadData(date: String, table: UITableView, completion: @escaping ([String]) -> ()) {
         guard let email = Auth.auth().currentUser?.email else { return }
         var strArr = [String]()
         var strArr2 = [strArr]
         let arr = date
-        for i in arr {
-            db.collection(email)
-                .document("TodayTodo")
-                .collection(i)
-                .order(by: "timeStamp", descending: false)
-                .addSnapshotListener{ re, err in
-                    strArr.removeAll()
-                    strArr2.removeAll()
-                    for i in re!.documents {
-                        //                        print(i.data()["todoText"] as! String)
-                        strArr.append(i.data()["todoText"] as! String)
-                    }
-                    strArr2.append(strArr)
-                    completion(strArr2)
+        strArr2.removeAll()
+        db.collection(email)
+            .document("TodayTodo")
+            .collection(arr)
+            .order(by: "timeStamp", descending: false)
+            .addSnapshotListener { re, err in
+                strArr.removeAll()
+                for i in re!.documents {
+                    strArr.append(i.data()["todoText"] as! String)
                 }
-        }
-        
-        /*
-         db.collection(email).addSnapshotListener {(querySnapshot, err) in
-         guard let querySnapshot = querySnapshot else { return }
-         strArr2.removeAll()
-         documentArr.removeAll()
-         for document in querySnapshot.documents {
-         if document.documentID != "UserData" {
-         strArr.removeAll()
-         documentArr.append(document.documentID)
-         let a = document.data() as! [String: [String: Any]]
-         let b = a.keys
-         for i in b {
-         guard let c = a[i]!["todoText"] as? String else { return }
-         strArr.append(c)
-         }
-         strArr2.append(strArr)
-         }
-         }
-         completion(documentArr, strArr2)
-         table.reloadData()
-         }
-         */
+                completion(strArr)
+            }
     }
 }

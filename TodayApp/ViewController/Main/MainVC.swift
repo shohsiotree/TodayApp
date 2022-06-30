@@ -21,11 +21,9 @@ class MainVC: UIViewController {
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var timePickerHeight: NSLayoutConstraint!
     @IBOutlet weak var alarmButton: UIButton!
-    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var bottomStackView: UIStackView!
     
     var keyHeight: CGFloat?
-    var numberOfCount = 1
     var todoViewModel: TodoDataViewModel!
     
     override func viewDidLoad() {
@@ -80,16 +78,10 @@ class MainVC: UIViewController {
         }
     }
     
-    @objc func reloadTable() {
-        
-    }
-    
     private func loadData() {
         let nowDate = dateString()
-        DispatchQueue.main.async {
-            DatabaseService().homeLoadData(table: self.tableView,date: nowDate) { model in
-                self.todoViewModel = TodoDataViewModel(todoM: model)
-            }
+        DatabaseService().homeLoadData(table: self.tableView,date: nowDate) { model in
+            self.todoViewModel = TodoDataViewModel(todoM: model)
         }
     }
     
@@ -228,6 +220,10 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             CustomAlert().deletAlert(vc: self,documentId: self.todoViewModel.todoDocumentId(index: indexPath.row))
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
     }
 }
 
