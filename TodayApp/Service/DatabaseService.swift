@@ -14,11 +14,12 @@ class DatabaseService {
     func signInDB(email: String, pwd: String) {
         db.collection(email).document("UserData").setData(["Email":email,"password": pwd]) { err in
             guard err == nil else { return print("SignInDB err: \(err!)") }
-            print("SignInVC - 회원가입 디비 생성 성공")
+            print("DatabaseServic - signInDB")
         }
     }
     
     func homeLoadData(table: UITableView, date: String,  completion: @escaping ([TodoDataModel?]) -> ()) {
+        print("DatabaseServic - homeLoadData")
         guard let email = Auth.auth().currentUser?.email else { return }
         var todoM: TodoDataModel?
         var arrtodoM = [todoM]
@@ -45,6 +46,7 @@ class DatabaseService {
     }
     
     func createTodoListDB(date: Date, todoText: String, isAlarm: String, table: UITableView) {
+        print("DatabaseServic - createTodoListDB")
         guard let email = Auth.auth().currentUser?.email else { return }
         let documentId = ChangeFormmater().chagneFormmater(date: date)
         db.collection(email)
@@ -58,6 +60,7 @@ class DatabaseService {
     }
     
     func didSelectTodoListDB(date: String, todoData: TodoDataModel, table: UITableView) {
+        print("DatabaseServic - didSelectTodoListDB")
         guard let email = Auth.auth().currentUser?.email else { return }
         let documentId = todoData.documentId
         let isDone = !todoData.isDone
@@ -72,6 +75,7 @@ class DatabaseService {
     }
     
     func removeDB(date: String, documentID: String) {
+        print("DatabaseServic - removeDB")
         guard let email = Auth.auth().currentUser?.email else { return }
         db.collection(email)
             .document("TodayTodo")
@@ -81,6 +85,7 @@ class DatabaseService {
     }
     
     func addDateDatabase(date: String) {
+        print("DatabaseServic - addDateDatabase")
         guard let email = Auth.auth().currentUser?.email else { return }
         db.collection(email)
             .document("Dates")
@@ -92,6 +97,7 @@ class DatabaseService {
     }
     
     func dateLoadData(completion: @escaping ([String]) -> ()) {
+        print("DatabaseServic - dateLoadData")
         var dateArr = [String]()
         guard let email = Auth.auth().currentUser?.email else { return }
         db.collection(email)
@@ -110,6 +116,7 @@ class DatabaseService {
     }
     
     func postLoadData(date: String, table: UITableView, completion: @escaping ([String]) -> ()) {
+        print("DatabaseServic - postLoadData")
         guard let email = Auth.auth().currentUser?.email else { return }
         var strArr = [String]()
         var strArr2 = [strArr]

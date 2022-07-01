@@ -25,6 +25,7 @@ class CustomAlert {
     }
     
     func mainAlert(title: String, message: String, vc: UIViewController) {
+        print("CustomAlert - mainAlert")
         guard let mainVC = vc.storyboard?.instantiateViewController(withIdentifier: "MainVC") else { return }
         mainVC.modalPresentationStyle = .fullScreen
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -35,26 +36,8 @@ class CustomAlert {
         vc.present(alert, animated: true)
     }
     
-    func titleAlert(vc: UIViewController) {
-        let mainTitle = ChangeFont().mainTitle(title: "오늘의 제목을 정해주세요!")
-        
-        let alert = UIAlertController(title: "오늘의 제목을 정해주세요!", message: nil, preferredStyle: .alert)
-        alert.setValue(mainTitle, forKey: "attributedTitle")
-        let cancleButton = UIAlertAction(title: "취소", style: .cancel)
-        let saveButton = UIAlertAction(title: "저장", style: .default) { _ in
-            //TODO: 데이터베이스생성 추가
-        }
-        alert.addTextField { textField in
-            textField.placeholder = "오늘의 제목은?!"
-        }
-        cancleButton.setValue(UIColor.red, forKey: "titleTextColor")
-        saveButton.setValue(UIColor.black, forKey: "titleTextColor")
-        alert.addAction(cancleButton)
-        alert.addAction(saveButton)
-        vc.present(alert, animated: true)
-    }
-
     func deletAlert(vc: UIViewController, documentId: String) {
+        print("CustomAlert - deletAlert")
         let mainTitle = ChangeFont().mainTitle(title: "정말 삭제 하겠습니까?")
         let alert = UIAlertController(title: "정말 삭제 하겠습니까?", message: nil, preferredStyle: .alert)
         alert.setValue(mainTitle, forKey: "attributedTitle")

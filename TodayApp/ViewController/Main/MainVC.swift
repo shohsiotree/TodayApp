@@ -22,8 +22,9 @@ class MainVC: UIViewController {
     @IBOutlet weak var timePickerHeight: NSLayoutConstraint!
     @IBOutlet weak var alarmButton: UIButton!
     @IBOutlet weak var bottomStackView: UIStackView!
+    @IBOutlet weak var settingView: UIView!
+    @IBOutlet weak var settingViewHeight: NSLayoutConstraint!
     
-    var keyHeight: CGFloat?
     var todoViewModel: TodoDataViewModel!
     
     override func viewDidLoad() {
@@ -46,10 +47,12 @@ class MainVC: UIViewController {
         self.timePicker.tintColor = .black
         self.view.bringSubviewToFront(self.addButton)
         self.view.bringSubviewToFront(self.timePicker)
+        self.view.bringSubviewToFront(self.settingView)
         self.view.keyboardLayoutGuide.topAnchor.constraint(equalTo: self.toolbarStack.bottomAnchor).isActive = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("MainVC - touchesBegan")
         self.view.endEditing(true)
         self.tableView.endEditing(true)
         if self.stackHeight.constant == 80.0 {
@@ -62,16 +65,22 @@ class MainVC: UIViewController {
                 self.alarmText.text = ""
                 self.timePicker.alpha = 0
             }
+        } else if self.settingViewHeight.constant == 120.0 {
+            self.settingViewHeight.constant = 0.0
+            self.tableView.clipsToBounds = true
         }
     }
     
     @objc func tapAlaramButton() {
+        print("MainVC - tapAlaramButton")
         UIView.animate(withDuration: 0.5) {
             self.timePicker.alpha = 1
             self.alarmButton.setTitle("저장", for: .normal)
         }
     }
+    
     @objc func tapSavaButton() {
+        print("MainVC - tapSavaButton")
         UIView.animate(withDuration: 0.5) {
             self.timePicker.alpha = 0
             self.alarmButton.setTitle("알람", for: .normal)
@@ -79,6 +88,7 @@ class MainVC: UIViewController {
     }
     
     private func loadData() {
+        print("MainVC - loadData")
         let nowDate = ChangeFormmater().chagneFormmater(date: Date())
         DatabaseService().homeLoadData(table: self.tableView,date: nowDate) { model in
             self.todoViewModel = TodoDataViewModel(todoM: model)
@@ -86,12 +96,14 @@ class MainVC: UIViewController {
     }
     
     private func timeString(date: Date) -> String {
+        print("MainVC - timeString")
         let formmater = DateFormatter()
         formmater.timeStyle = .short
         return formmater.string(from: date)
     }
     
     @IBAction func tapAddButton(_ sender: Any) {
+        print("MainVC - tapAddButton")
         if self.stackHeight.constant == 0.0 {
             UIView.animate(withDuration: 0.5) {
                 self.bottomStackView.isHidden = false
@@ -104,7 +116,7 @@ class MainVC: UIViewController {
     }
     
     @IBAction func tapAlarmButton(_ sender: Any) {
-        //TODO: 알람 데이트 피커 열기
+        print("MainVC - tapAlarmButton")
         if self.timePicker.alpha == 0 && self.alarmButton.currentTitle == "알람" {
             UIView.animate(withDuration: 0.5) {
                 self.timePicker.alpha = 1
@@ -121,6 +133,7 @@ class MainVC: UIViewController {
     }
     
     @IBAction func tapSaveButton(_ sender: Any) {
+        print("MainVC - tapSaveButton")
         if !self.textField.text!.isEmpty {
             guard let text = self.textField.text else { return }
             guard let alarm = self.alarmText.text else { return }
@@ -205,12 +218,14 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        print("MainVC - UITableViewCell.EditingStyle.delete")
         if editingStyle == UITableViewCell.EditingStyle.delete {
             CustomAlert().deletAlert(vc: self,documentId: self.todoViewModel.todoDocumentId(index: indexPath.row))
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("MainVC - tdidSelectRowAt")
         DatabaseService().didSelectTodoListDB(date: ChangeFormmater().chagneFormmater(date: Date()), todoData: self.todoViewModel.todoOfCellIndex(index: indexPath.row), table: self.tableView)
         self.tableView.reloadRows(at: [indexPath], with: .automatic)
         self.tableView.deselectRow(at: indexPath, animated: true)
@@ -221,6 +236,7 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
 @available(iOS 15.0, *)
 extension MainVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("MainVC - textFieldShouldReturn")
         textField.resignFirstResponder()
         self.bottomStackView.isHidden = true
         UIView.animate(withDuration: 0.5) {
