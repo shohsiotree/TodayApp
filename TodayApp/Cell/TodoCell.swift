@@ -11,7 +11,13 @@ class TodoCell: UITableViewCell {
     @IBOutlet weak var todoText: UILabel!
     @IBOutlet weak var alarmText: UILabel!
     func updateTodo(todoData: TodoDataModel) {
-        self.todoText.text = todoData.todoText
+        if todoData.isDone == true {
+            self.todoText.textColor = .lightGray
+            self.todoText.text = todoData.todoText
+        } else if todoData.isDone == false {
+            self.todoText.textColor = .black
+            self.todoText.text = todoData.todoText
+        }
         self.alarmText.text = todoData.isAlarm
     }
 }

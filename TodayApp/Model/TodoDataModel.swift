@@ -12,5 +12,4 @@ struct TodoDataModel {
     var todoText: String
     var isAlarm: String
     var isDone: Bool
-    var uploadTime: String
 }

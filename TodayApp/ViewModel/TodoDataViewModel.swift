@@ -35,8 +35,8 @@ struct TodoDataViewModel {
     func todoDocumentId(index:Int) -> String {
         return todoM[index]!.documentId
     }
-    
-    func todoUploadTime(index: Int) -> String {
-        return todoM[index]!.uploadTime
+
+    func todoIsDone(index: Int) -> Bool {
+        return todoM[index]!.isDone
     }
 }

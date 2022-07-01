@@ -61,7 +61,7 @@ class CustomAlert {
         let cancleButton = UIAlertAction(title: "취소", style: .cancel)
         let saveButton = UIAlertAction(title: "삭제", style: .default) { _ in
             //TODO: DB에서 삭제
-            DatabaseService().removeDB(documentId: documentId)
+            DatabaseService().removeDB(date: ChangeFormmater().chagneFormmater(date: Date()), documentID: documentId)
         }
         cancleButton.setValue(UIColor.red, forKey: "titleTextColor")
         saveButton.setValue(UIColor.black, forKey: "titleTextColor")

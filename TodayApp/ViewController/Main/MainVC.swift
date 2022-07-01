@@ -33,7 +33,7 @@ class MainVC: UIViewController {
     }
     
     private func setup() {
-        self.navigationItem.title =  dateString()
+        self.navigationItem.title = ChangeFormmater().chagneFormmater(date: Date())
         self.stackHeight.constant = 0.0
         self.toolbarStack.frame.size.height = 0.0
         self.tableView.clipsToBounds = true
@@ -79,7 +79,7 @@ class MainVC: UIViewController {
     }
     
     private func loadData() {
-        let nowDate = dateString()
+        let nowDate = ChangeFormmater().chagneFormmater(date: Date())
         DatabaseService().homeLoadData(table: self.tableView,date: nowDate) { model in
             self.todoViewModel = TodoDataViewModel(todoM: model)
         }
@@ -89,13 +89,6 @@ class MainVC: UIViewController {
         let formmater = DateFormatter()
         formmater.timeStyle = .short
         return formmater.string(from: date)
-    }
-    
-    private func dateString() -> String {
-        let formmater = DateFormatter()
-        formmater.dateFormat = "yy.MM.dd(EEEEE)"
-        formmater.locale = Locale(identifier: "ko_KR")
-        return formmater.string(from: Date())
     }
     
     @IBAction func tapAddButton(_ sender: Any) {
@@ -131,17 +124,13 @@ class MainVC: UIViewController {
         if !self.textField.text!.isEmpty {
             guard let text = self.textField.text else { return }
             guard let alarm = self.alarmText.text else { return }
-            let nowDate = dateString()
-            let formatter = DateFormatter()
-            formatter.dateFormat = "HH:mm:ss"
-            formatter.locale = Locale(identifier: "ko_KR")
-            let time = formatter.string(from: Date())
+            let nowDate = ChangeFormmater().chagneFormmater(date: Date())
             
             if self.todoViewModel.numberOfRowsInSection() == 0 {
                 DatabaseService().addDateDatabase(date: nowDate)
             }
             
-            DatabaseService().createTodoListDB(date: Date(), todoText: text, isAlarm: alarm, uploadTime: time, table: self.tableView)
+            DatabaseService().createTodoListDB(date: Date(), todoText: text, isAlarm: alarm, table: self.tableView)
             
             self.bottomStackView.isHidden = true
             UIView.animate(withDuration: 0.5) {
@@ -194,7 +183,6 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
                 self.tableView.separatorStyle = .none
             }
             let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath) as! TodoCell
-            
             cell.updateTodo(todoData: self.todoViewModel.todoOfCellIndex(index: indexPath.row))
             return cell
         }
@@ -223,7 +211,9 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        DatabaseService().didSelectTodoListDB(date: ChangeFormmater().chagneFormmater(date: Date()), todoData: self.todoViewModel.todoOfCellIndex(index: indexPath.row), table: self.tableView)
+        self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

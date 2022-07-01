@@ -32,11 +32,11 @@ class DatabaseService {
                 guard let querySnapshot = querySnapshot else { return }
                 for document in querySnapshot.documents {
                     todoM = TodoDataModel(
-                        documentId: "",
+                        documentId: document.documentID,
                         todoText: document.data()["todoText"] as! String,
                         isAlarm: document.data()["isAlarm"] as! String,
-                        isDone: (document.data()["isDone"] != nil),
-                        uploadTime: document.data()["uploadTime"] as! String)
+                        isDone: document.data()["isDone"] as! Bool
+                    )
                     arrtodoM.append(todoM)
                 }
                 completion(arrtodoM)
@@ -44,7 +44,7 @@ class DatabaseService {
             }
     }
     
-    func createTodoListDB(date: Date, todoText: String, isAlarm: String, uploadTime: String, table: UITableView) {
+    func createTodoListDB(date: Date, todoText: String, isAlarm: String, table: UITableView) {
         guard let email = Auth.auth().currentUser?.email else { return }
         let documentId = ChangeFormmater().chagneFormmater(date: date)
         db.collection(email)
@@ -54,27 +54,32 @@ class DatabaseService {
                 "todoText": todoText,
                 "isAlarm": isAlarm,
                 "isDone": false,
-                "uploadTime": uploadTime,
                 "timeStamp": Date()])
     }
     
-    //TODO: didSelect 시, IsDone 값 변경 (업데이트) -> didSelect 시 isDone 값 변경 수정(2022.06.30)
-    func didSelectTodoListDB(date: Date, number: Int, todoText: String, isAlarm: String, isDone: Bool, uploadTime: String, table: UITableView) {
+    func didSelectTodoListDB(date: String, todoData: TodoDataModel, table: UITableView) {
         guard let email = Auth.auth().currentUser?.email else { return }
-        let documentId = ChangeFormmater().chagneFormmater(date: Date())
-        let field = [ "todoText": todoText, "isAlarm": isAlarm,"isDone": false, "uploadTime": uploadTime] as [String : Any]
-        db.collection(email).document(documentId).updateData([
-            number: field
-        ])
+        let documentId = todoData.documentId
+        let isDone = !todoData.isDone
+        db.collection(email)
+            .document("TodayTodo")
+            .collection(date)
+            .document(documentId)
+            .updateData([
+                "isDone": isDone
+            ])
         table.reloadData()
     }
-    //TODO: Edit눌러 삭제 시, 해당 날짜를 가진 Collection 업데이트 (삭제)
-    //TODO: todoList 삭제 (삭졔) -> 전체 삭제에서 다르게 변경(2022.06.28)
-    func removeDB(documentId: String) {
+    
+    func removeDB(date: String, documentID: String) {
         guard let email = Auth.auth().currentUser?.email else { return }
-        db.collection(email).document(documentId).delete()
+        db.collection(email)
+            .document("TodayTodo")
+            .collection(date)
+            .document(documentID)
+            .delete()
     }
-    //TODO: 따로 날짜를 추가하는 데이터베이스를 추가
+    
     func addDateDatabase(date: String) {
         guard let email = Auth.auth().currentUser?.email else { return }
         db.collection(email)
@@ -85,14 +90,14 @@ class DatabaseService {
                 "timeStamp": Date()
             ])
     }
-    //TODO: 따로 추가한 날짜 컬렉션안에 값 뺴오기
+    
     func dateLoadData(completion: @escaping ([String]) -> ()) {
         var dateArr = [String]()
         guard let email = Auth.auth().currentUser?.email else { return }
         db.collection(email)
             .document("Dates")
             .collection("date")
-            .order(by: "timeStamp", descending: false)
+            .order(by: "timeStamp", descending: true)
             .getDocuments { (querySnapshot, err) in
                 dateArr.removeAll()
                 guard let query = querySnapshot else { return }
@@ -104,7 +109,6 @@ class DatabaseService {
         
     }
     
-    //TODO: 날짜를 따로 데이터베이스에 추가 하는 걸 만들기 (할일 추가 시, 디비 생성 하나 더 추가로 해서 값을 뽑아 arr로 정리후 하단 화면처럼 하기
     func postLoadData(date: String, table: UITableView, completion: @escaping ([String]) -> ()) {
         guard let email = Auth.auth().currentUser?.email else { return }
         var strArr = [String]()
@@ -114,7 +118,7 @@ class DatabaseService {
         db.collection(email)
             .document("TodayTodo")
             .collection(arr)
-            .order(by: "timeStamp", descending: false)
+            .order(by: "timeStamp", descending: true)
             .addSnapshotListener { re, err in
                 strArr.removeAll()
                 for i in re!.documents {
