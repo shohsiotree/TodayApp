@@ -41,6 +41,7 @@
 		E639803A285B192100347E87 /* CheckVaild.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6398039285B192100347E87 /* CheckVaild.swift */; };
 		E639803E285B254500347E87 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E639803D285B254500347E87 /* IntroVC.swift */; };
 		E6398040285B265300347E87 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E639803F285B265300347E87 /* AppManager.swift */; };
+		E68382C42872A7FC0053048D /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68382C32872A7FC0053048D /* SideMenuVC.swift */; };
 		E6A00623286A949F007F2C14 /* basicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A00622286A949F007F2C14 /* basicCell.swift */; };
 		E6A00625286ACB75007F2C14 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A00624286ACB75007F2C14 /* Dummy.swift */; };
 		E6C3F4A528600053000497AE /* ChangeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4A428600053000497AE /* ChangeFont.swift */; };
@@ -107,6 +108,7 @@
 		E6398039285B192100347E87 /* CheckVaild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckVaild.swift; sourceTree = "<group>"; };
 		E639803D285B254500347E87 /* IntroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
 		E639803F285B265300347E87 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		E68382C32872A7FC0053048D /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		E6A00622286A949F007F2C14 /* basicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = basicCell.swift; sourceTree = "<group>"; };
 		E6A00624286ACB75007F2C14 /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Dummy.swift; path = ../../../Dummy.swift; sourceTree = "<group>"; };
 		E6C3F4A428600053000497AE /* ChangeFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFont.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 		E60BB4F32859558600781E84 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E68382C32872A7FC0053048D /* SideMenuVC.swift */,
 				E60BB4F42859559600781E84 /* Login&Join */,
 				E60BB4F5285955A400781E84 /* Main */,
 				E6A00624286ACB75007F2C14 /* Dummy.swift */,
@@ -594,6 +597,7 @@
 				E626328D285C58D200B1AFEF /* DatabaseService.swift in Sources */,
 				E60BB4C22858837000781E84 /* SceneDelegate.swift in Sources */,
 				E6C3F4A72860082D000497AE /* ChangeFormmater.swift in Sources */,
+				E68382C42872A7FC0053048D /* SideMenuVC.swift in Sources */,
 				E6398036285B03D500347E87 /* CustomAlert.swift in Sources */,
 				E6398038285B0B6100347E87 /* AuthService.swift in Sources */,
 				E6263283285C51FA00B1AFEF /* TodoCell.swift in Sources */,

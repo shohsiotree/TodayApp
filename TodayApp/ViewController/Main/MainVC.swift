@@ -22,8 +22,8 @@ class MainVC: UIViewController {
     @IBOutlet weak var timePickerHeight: NSLayoutConstraint!
     @IBOutlet weak var alarmButton: UIButton!
     @IBOutlet weak var bottomStackView: UIStackView!
-    @IBOutlet weak var settingView: UIView!
-    @IBOutlet weak var settingViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var sideMenuView: UIView!
+    @IBOutlet weak var sideMenuWidth: NSLayoutConstraint!
     
     var todoViewModel: TodoDataViewModel!
     
@@ -35,6 +35,7 @@ class MainVC: UIViewController {
     
     private func setup() {
         self.navigationItem.title = ChangeFormmater().chagneFormmater(date: Date())
+        self.navigationItem.backButtonTitle = "뒤로" 
         self.stackHeight.constant = 0.0
         self.toolbarStack.frame.size.height = 0.0
         self.tableView.clipsToBounds = true
@@ -47,14 +48,20 @@ class MainVC: UIViewController {
         self.timePicker.tintColor = .black
         self.view.bringSubviewToFront(self.addButton)
         self.view.bringSubviewToFront(self.timePicker)
-        self.view.bringSubviewToFront(self.settingView)
         self.view.keyboardLayoutGuide.topAnchor.constraint(equalTo: self.toolbarStack.bottomAnchor).isActive = true
+        self.sideMenuWidth.constant = 0.0
+        let refresh = UIRefreshControl()
+        refresh.attributedTitle = NSAttributedString(string: "새로고침")
+        refresh.addTarget(self, action: #selector(reloadData(_:)), for: .valueChanged)
+        self.tableView.refreshControl = refresh
+        self.tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapTableview)))
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("MainVC - touchesBegan")
         self.view.endEditing(true)
         self.tableView.endEditing(true)
+        
         if self.stackHeight.constant == 80.0 {
             self.bottomStackView.isHidden = true
             UIView.animate(withDuration: 0.5) {
@@ -65,9 +72,39 @@ class MainVC: UIViewController {
                 self.alarmText.text = ""
                 self.timePicker.alpha = 0
             }
-        } else if self.settingViewHeight.constant == 120.0 {
-            self.settingViewHeight.constant = 0.0
-            self.tableView.clipsToBounds = true
+        }
+        
+        if self.sideMenuWidth.constant > 0 {
+            UIView.animate(withDuration: 0.5) {
+                self.sideMenuWidth.constant = 0
+                self.addButton.alpha = 1
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    @objc func tapTableview() {
+        self.view.endEditing(true)
+        self.tableView.endEditing(true)
+        
+        if self.stackHeight.constant == 80.0 {
+            self.bottomStackView.isHidden = true
+            UIView.animate(withDuration: 0.5) {
+                self.stackHeight.constant = 0.0
+                self.tableView.clipsToBounds = true
+                self.addButton.isHidden = false
+                self.textField.text = ""
+                self.alarmText.text = ""
+                self.timePicker.alpha = 0
+            }
+        }
+        
+        if self.sideMenuWidth.constant > 0 {
+            UIView.animate(withDuration: 0.5) {
+                self.sideMenuWidth.constant = 0
+                self.addButton.alpha = 1
+                self.view.layoutIfNeeded()
+            }
         }
     }
     
@@ -85,6 +122,11 @@ class MainVC: UIViewController {
             self.timePicker.alpha = 0
             self.alarmButton.setTitle("알람", for: .normal)
         }
+    }
+    
+    @objc func reloadData(_ sender: UIRefreshControl) {
+        sender.endRefreshing()
+        self.loadData()
     }
     
     private func loadData() {
@@ -161,10 +203,25 @@ class MainVC: UIViewController {
     }
     
     @IBAction func logoutButton(_ sender: Any) {
-        try? Auth.auth().signOut()
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "LoginVC") else { return }
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        
+        if self.sideMenuWidth.constant > 0 {
+            UIView.animate(withDuration: 0.5) {
+                self.sideMenuWidth.constant = 0.0
+                self.addButton.alpha = 1
+                self.view.layoutIfNeeded()
+            }
+        } else {
+            UIView.animate(withDuration: 0.5) {
+                self.sideMenuWidth.constant = 120.0
+                self.addButton.alpha = 0
+                self.view.layoutIfNeeded()
+            }
+        }
+        //        try? Auth.auth().signOut()
+        //        guard let vc = storyboard?.instantiateViewController(withIdentifier: "LoginVC") else { return }
+        //        vc.modalPresentationStyle = .fullScreen
+        //        self.present(vc, animated: true)
+        
     }
 }
 

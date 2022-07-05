@@ -335,6 +335,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCW-I0-jpH">
+                                <rect key="frame" x="414" y="88" width="0.0" height="774"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" id="cND-qu-R9l"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yPJ-Kw-atw"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
@@ -342,14 +349,17 @@
                         <constraints>
                             <constraint firstItem="6k8-YL-8vW" firstAttribute="top" secondItem="yPJ-Kw-atw" secondAttribute="top" constant="20" id="1UL-b4-30E"/>
                             <constraint firstItem="NP7-IX-DBy" firstAttribute="top" secondItem="6k8-YL-8vW" secondAttribute="bottom" constant="40" id="3Pj-uH-bn5"/>
+                            <constraint firstItem="yPJ-Kw-atw" firstAttribute="bottom" secondItem="lCW-I0-jpH" secondAttribute="bottom" id="5sH-0X-Gdf"/>
                             <constraint firstItem="NP7-IX-DBy" firstAttribute="leading" secondItem="yPJ-Kw-atw" secondAttribute="leading" id="MPo-zJ-PQB"/>
                             <constraint firstItem="yPJ-Kw-atw" firstAttribute="trailing" secondItem="Jap-Oy-dYY" secondAttribute="trailing" constant="35" id="MsP-7F-xJc"/>
                             <constraint firstItem="vgI-nm-fPd" firstAttribute="leading" secondItem="yPJ-Kw-atw" secondAttribute="leading" constant="60" id="Pa3-JT-gPo"/>
                             <constraint firstItem="vgI-nm-fPd" firstAttribute="bottom" secondItem="6k8-YL-8vW" secondAttribute="bottom" id="S3R-Oy-RhF"/>
                             <constraint firstItem="yPJ-Kw-atw" firstAttribute="trailing" secondItem="6k8-YL-8vW" secondAttribute="trailing" constant="20" id="Tzj-Gn-jZ4"/>
+                            <constraint firstItem="yPJ-Kw-atw" firstAttribute="top" secondItem="lCW-I0-jpH" secondAttribute="top" id="VJO-Tk-o7c"/>
                             <constraint firstItem="yPJ-Kw-atw" firstAttribute="trailing" secondItem="vgI-nm-fPd" secondAttribute="trailing" constant="60" id="W5X-7H-ec4"/>
                             <constraint firstItem="yPJ-Kw-atw" firstAttribute="bottom" secondItem="Jap-Oy-dYY" secondAttribute="bottom" constant="35" id="c1l-PC-AcW"/>
                             <constraint firstItem="NP7-IX-DBy" firstAttribute="trailing" secondItem="yPJ-Kw-atw" secondAttribute="trailing" id="gNp-Xb-X2u"/>
+                            <constraint firstItem="yPJ-Kw-atw" firstAttribute="trailing" secondItem="lCW-I0-jpH" secondAttribute="trailing" id="gmW-Ym-J6t"/>
                             <constraint firstItem="6k8-YL-8vW" firstAttribute="leading" secondItem="yPJ-Kw-atw" secondAttribute="leading" constant="20" id="tSc-GB-exX"/>
                         </constraints>
                         <connections>
@@ -375,6 +385,8 @@
                         <outlet property="alarmButton" destination="9E8-bp-3aK" id="hu5-ae-7NA"/>
                         <outlet property="alarmText" destination="Zck-la-yAb" id="CDv-aO-R9L"/>
                         <outlet property="bottomStackView" destination="LNF-S4-UDM" id="nFG-X6-New"/>
+                        <outlet property="sideMenuView" destination="lCW-I0-jpH" id="oC9-j9-5rD"/>
+                        <outlet property="sideMenuWidth" destination="cND-qu-R9l" id="RFb-vw-uVb"/>
                         <outlet property="stackHeight" destination="t6E-64-6s9" id="lal-fy-Xe1"/>
                         <outlet property="tableView" destination="6k8-YL-8vW" id="ggb-SC-bJB"/>
                         <outlet property="textField" destination="iZG-bN-cFc" id="CQL-qx-mOg"/>
@@ -452,7 +464,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="frC-mQ-0XJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4597" y="-174"/>
+            <point key="canvasLocation" x="5003" y="-174"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="BjY-ou-N5Z">
