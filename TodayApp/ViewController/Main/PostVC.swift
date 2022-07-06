@@ -11,8 +11,9 @@ class PostVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var strArr = [[String]]()
+    var tableViewData = [[String]]()
     var dateArr = [String]()
+    var hiddenSections = Set<Int>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,37 +27,32 @@ class PostVC: UIViewController {
             self.dateArr = arr
             for i in arr {
                 DatabaseService().postLoadData(date: i, table: self.tableView) { bb in
-                    self.strArr.append(bb)
-                    if self.strArr.count == arr.count {
+                    self.tableViewData.append(bb)
+                    if self.tableViewData.count == arr.count {
                         self.tableView.reloadData()
                     }
                 }
             }
         }
     }
-    
-    private func dateString() -> String {
-        let formmater = DateFormatter()
-        formmater.dateFormat = "yy.MM.dd(EEEEE)"
-        formmater.locale = Locale(identifier: "ko_KR")
-        return formmater.string(from: Date())
-    }
 }
 
-//TODO: headerCell -> document / normalCell -> strArr[i].count
 extension PostVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.strArr.count > 0 {
-            return  self.strArr[section].count
+        if self.tableViewData.count > 0 {
+            if self.hiddenSections.contains(section) {
+                return 0
+            }
+            return self.tableViewData[section].count
         } else {
             return 1
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if self.strArr.count > 0 {
+        if self.tableViewData.count > 0 {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath) as! basicCell
-            cell.todoText.text = self.strArr[indexPath.section][indexPath.row]
+            cell.todoText.text = self.tableViewData[indexPath.section][indexPath.row]
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath) as! EmptyCell
@@ -66,14 +62,55 @@ extension PostVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if self.strArr.count > 0 {
-            return self.dateArr.count
+        if self.tableViewData.count > 0 {
+            return self.tableViewData.count
         } else {
             return 0
         }
     }
+  
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionButton = UIButton()
+        sectionButton.setTitle(self.dateArr[section],
+                               for: .normal)
+        sectionButton.tag = section
+        sectionButton.setTitleColor(.black, for: .normal)
+        sectionButton.contentHorizontalAlignment = .left
+        sectionButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 18, bottom: 5, right: 18)
+        sectionButton.addTarget(self,
+                                action: #selector(self.hideSection(sender:)),
+                                for: .touchUpInside)
+        return sectionButton
+    }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.dateArr[section]
+    @objc private func hideSection(sender: UIButton) {
+        print("PostVC - hideSection")
+        let section = sender.tag
+
+        func indexPathsForSection() -> [IndexPath] {
+            var indexPaths = [IndexPath]()
+            
+            for row in 0..<self.tableViewData[section].count {
+                indexPaths.append(IndexPath(row: row,
+                                            section: section))
+            }
+            
+            return indexPaths
+        }
+        
+        if self.hiddenSections.contains(section) {
+            self.hiddenSections.remove(section)
+            self.tableView.insertRows(at: indexPathsForSection(),
+                                      with: .fade)
+        } else {
+            self.hiddenSections.insert(section)
+            self.tableView.deleteRows(at: indexPathsForSection(),
+                                      with: .fade)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("PostVC - didSelectRowAt")
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
 }

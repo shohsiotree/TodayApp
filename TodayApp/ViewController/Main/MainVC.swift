@@ -24,8 +24,10 @@ class MainVC: UIViewController {
     @IBOutlet weak var bottomStackView: UIStackView!
     @IBOutlet weak var sideMenuView: UIView!
     @IBOutlet weak var sideMenuWidth: NSLayoutConstraint!
+    @IBOutlet weak var settingTable: UITableView!
     
     var todoViewModel: TodoDataViewModel!
+    let settingArr = ["예제샘플1","예제샘플2","예제샘플3","예제샘플4"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,7 @@ class MainVC: UIViewController {
     
     private func setup() {
         self.navigationItem.title = ChangeFormmater().chagneFormmater(date: Date())
-        self.navigationItem.backButtonTitle = "뒤로" 
+        self.navigationItem.backButtonTitle = "뒤로"
         self.stackHeight.constant = 0.0
         self.toolbarStack.frame.size.height = 0.0
         self.tableView.clipsToBounds = true
@@ -229,63 +231,90 @@ class MainVC: UIViewController {
 @available(iOS 15.0, *)
 extension MainVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.todoViewModel != nil {
-            if  self.todoViewModel.numberOfRowsInSection() == 0 {
-                return 1
+        if tableView == self.tableView {
+            if self.todoViewModel != nil {
+                if  self.todoViewModel.numberOfRowsInSection() == 0 {
+                    return 1
+                } else {
+                    return self.todoViewModel.numberOfRowsInSection()
+                }
             } else {
-                return self.todoViewModel.numberOfRowsInSection()
+                return 0
             }
+        } else if tableView == self.settingTable {
+            return self.settingArr.count
         } else {
             return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if self.todoViewModel.numberOfRowsInSection() == 0 {
-            self.tableView.separatorStyle = .none
-            let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath) as! EmptyCell
-            cell.updateDate()
+        if tableView == self.tableView {
+            if self.todoViewModel.numberOfRowsInSection() == 0 {
+                self.tableView.separatorStyle = .none
+                let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath) as! EmptyCell
+                cell.updateDate()
+                return cell
+            } else {
+                if self.todoViewModel.numberOfRowsInSection() > 1 {
+                    self.tableView.separatorStyle = .singleLine
+                } else {
+                    self.tableView.separatorStyle = .none
+                }
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath) as! TodoCell
+                cell.updateTodo(todoData: self.todoViewModel.todoOfCellIndex(index: indexPath.row))
+                return cell
+            }
+        } else if tableView == self.settingTable {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath) as! SettingCell
+            cell.settingText.text = self.settingArr[indexPath.row]
             return cell
         } else {
-            if self.todoViewModel.numberOfRowsInSection() > 1 {
-                self.tableView.separatorStyle = .singleLine
-            } else {
-                self.tableView.separatorStyle = .none
-            }
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath) as! TodoCell
-            cell.updateTodo(todoData: self.todoViewModel.todoOfCellIndex(index: indexPath.row))
-            return cell
+            return UITableViewCell()
         }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if self.todoViewModel.numberOfRowsInSection() == 0 {
-            return CGFloat(UIScreen.main.bounds.height / 2 - 50)
+        if tableView == self.tableView {
+            if self.todoViewModel.numberOfRowsInSection() == 0 {
+                return CGFloat(UIScreen.main.bounds.height / 2 - 50)
+            } else {
+                return CGFloat(UIScreen.main.bounds.height / 7)
+            }
+        } else if tableView == self.settingTable {
+            return self.settingTable.estimatedRowHeight
         } else {
-            return CGFloat(UIScreen.main.bounds.height / 7)
+            return CGFloat(UIScreen.main.bounds.height / 10)
         }
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if self.todoViewModel.numberOfRowsInSection() == 0 {
+        if tableView == self.tableView {
+            if self.todoViewModel.numberOfRowsInSection() == 0 {
+                return .none
+            }
+            return .delete
+        } else {
             return .none
         }
-        return .delete
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         print("MainVC - UITableViewCell.EditingStyle.delete")
-        if editingStyle == UITableViewCell.EditingStyle.delete {
-            CustomAlert().deletAlert(vc: self,documentId: self.todoViewModel.todoDocumentId(index: indexPath.row))
+        if tableView == self.tableView {
+            if editingStyle == UITableViewCell.EditingStyle.delete {
+                CustomAlert().deletAlert(vc: self,documentId: self.todoViewModel.todoDocumentId(index: indexPath.row))
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("MainVC - tdidSelectRowAt")
-        DatabaseService().didSelectTodoListDB(date: ChangeFormmater().chagneFormmater(date: Date()), todoData: self.todoViewModel.todoOfCellIndex(index: indexPath.row), table: self.tableView)
-        self.tableView.reloadRows(at: [indexPath], with: .automatic)
-        self.tableView.deselectRow(at: indexPath, animated: true)
+        if tableView == self.tableView {
+            DatabaseService().didSelectTodoListDB(date: ChangeFormmater().chagneFormmater(date: Date()), todoData: self.todoViewModel.todoOfCellIndex(index: indexPath.row), table: self.tableView)
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            self.tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 }
 

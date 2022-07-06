@@ -11,6 +11,6 @@ class SideMenuVC: UIViewController {
 
     @IBOutlet weak var sideMenu: UIView!
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
     }
 }

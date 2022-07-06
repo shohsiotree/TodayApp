@@ -42,6 +42,7 @@
 		E639803E285B254500347E87 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E639803D285B254500347E87 /* IntroVC.swift */; };
 		E6398040285B265300347E87 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E639803F285B265300347E87 /* AppManager.swift */; };
 		E68382C42872A7FC0053048D /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68382C32872A7FC0053048D /* SideMenuVC.swift */; };
+		E68382C62875126D0053048D /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68382C52875126D0053048D /* SettingCell.swift */; };
 		E6A00623286A949F007F2C14 /* basicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A00622286A949F007F2C14 /* basicCell.swift */; };
 		E6A00625286ACB75007F2C14 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A00624286ACB75007F2C14 /* Dummy.swift */; };
 		E6C3F4A528600053000497AE /* ChangeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4A428600053000497AE /* ChangeFont.swift */; };
@@ -109,6 +110,7 @@
 		E639803D285B254500347E87 /* IntroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
 		E639803F285B265300347E87 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		E68382C32872A7FC0053048D /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
+		E68382C52875126D0053048D /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		E6A00622286A949F007F2C14 /* basicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = basicCell.swift; sourceTree = "<group>"; };
 		E6A00624286ACB75007F2C14 /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Dummy.swift; path = ../../../Dummy.swift; sourceTree = "<group>"; };
 		E6C3F4A428600053000497AE /* ChangeFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFont.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				E6263282285C51FA00B1AFEF /* TodoCell.swift */,
 				E6C3F4A8286035FB000497AE /* TitleCell.swift */,
 				E6A00622286A949F007F2C14 /* basicCell.swift */,
+				E68382C52875126D0053048D /* SettingCell.swift */,
 			);
 			name = MainCell;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				E6263283285C51FA00B1AFEF /* TodoCell.swift in Sources */,
 				E6A00625286ACB75007F2C14 /* Dummy.swift in Sources */,
 				E6398040285B265300347E87 /* AppManager.swift in Sources */,
+				E68382C62875126D0053048D /* SettingCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
