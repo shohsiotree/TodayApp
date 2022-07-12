@@ -14,10 +14,13 @@ class TodoCell: UITableViewCell {
         if todoData.isDone == true {
             self.todoText.textColor = .lightGray
             self.todoText.text = todoData.todoText
+            self.alarmText.textColor = .lightGray
+            self.alarmText.text = todoData.isAlarm
         } else if todoData.isDone == false {
             self.todoText.textColor = .black
             self.todoText.text = todoData.todoText
+            self.alarmText.textColor = .black
+            self.alarmText.text = todoData.isAlarm
         }
-        self.alarmText.text = todoData.isAlarm
     }
 }

@@ -402,9 +402,6 @@
                             <constraint firstItem="yPJ-Kw-atw" firstAttribute="trailing" secondItem="lCW-I0-jpH" secondAttribute="trailing" id="gmW-Ym-J6t"/>
                             <constraint firstItem="6k8-YL-8vW" firstAttribute="leading" secondItem="yPJ-Kw-atw" secondAttribute="leading" constant="20" id="tSc-GB-exX"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="R6U-iP-Wa9" appends="YES" id="spN-k6-c4e"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="title" id="SKs-vw-lkb">
                         <rightBarButtonItems>
@@ -438,7 +435,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnD-kI-keM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="R6U-iP-Wa9"/>
             </objects>
             <point key="canvasLocation" x="3695.652173913044" y="-174.10714285714286"/>
         </scene>
@@ -505,7 +501,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="frC-mQ-0XJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5003" y="-174"/>
+            <point key="canvasLocation" x="4657" y="-174"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="BjY-ou-N5Z">

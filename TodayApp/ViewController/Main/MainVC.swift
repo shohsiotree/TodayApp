@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import UserNotifications
 
 @available(iOS 15.0, *)
 class MainVC: UIViewController {
@@ -28,11 +29,27 @@ class MainVC: UIViewController {
     
     var todoViewModel: TodoDataViewModel!
     let settingArr = ["예제샘플1","예제샘플2","예제샘플3","예제샘플4"]
+    var alarmTime: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.checkAuth()
         self.setup()
         self.loadData()
+    }
+    
+    private func checkAuth() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { result, err in
+            if result == false {
+                let alert = UIAlertController(title: "알림", message: "권한 설정 후 실행해주세요.", preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .default) { _ in
+                    exit(1)
+                }
+                alert.addAction(action)
+                self.present(alert, animated: true)
+            }
+        }
     }
     
     private func setup() {
@@ -83,6 +100,9 @@ class MainVC: UIViewController {
                 self.view.layoutIfNeeded()
             }
         }
+        
+        self.timePicker.alpha = 0
+        self.alarmButton.setTitle("알람", for: .normal)
     }
     
     @objc func tapTableview() {
@@ -108,6 +128,9 @@ class MainVC: UIViewController {
                 self.view.layoutIfNeeded()
             }
         }
+        
+        self.timePicker.alpha = 0
+        self.alarmButton.setTitle("알람", for: .normal)
     }
     
     @objc func tapAlaramButton() {
@@ -162,16 +185,18 @@ class MainVC: UIViewController {
     @IBAction func tapAlarmButton(_ sender: Any) {
         print("MainVC - tapAlarmButton")
         if self.timePicker.alpha == 0 && self.alarmButton.currentTitle == "알람" {
+            print("MainVC - tapAlarmButton: 알람")
             UIView.animate(withDuration: 0.5) {
                 self.timePicker.alpha = 1
                 self.alarmButton.setTitle("추가", for: .normal)
             }
         } else if self.timePicker.alpha == 1 && self.alarmButton.currentTitle == "추가"{
+            print("MainVC - tapAlarmButton: 추가")
             UIView.animate(withDuration: 0.5) {
                 self.timePicker.alpha = 0
                 self.alarmButton.setTitle("알람", for: .normal)
                 self.alarmText.text = self.timeString(date: self.timePicker.date)
-                print(self.timeString(date: self.timePicker.date))
+                self.alarmTime = self.timePicker.date
             }
         }
     }
@@ -188,7 +213,22 @@ class MainVC: UIViewController {
             }
             
             DatabaseService().createTodoListDB(date: Date(), todoText: text, isAlarm: alarm, table: self.tableView)
-            
+            if alarm != "", let time = self.alarmTime {
+                let content = UNMutableNotificationContent()
+                content.title = "알림"
+                content.body = text
+                content.sound = .default
+                content.badge = 1
+
+                let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: time)
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+
+                let uuid = UUID().uuidString
+                let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
+
+                UNUserNotificationCenter.current().add(request)
+            }
+
             self.bottomStackView.isHidden = true
             UIView.animate(withDuration: 0.5) {
                 self.stackHeight.constant = 0.0
@@ -199,8 +239,10 @@ class MainVC: UIViewController {
                 self.timePicker.alpha = 0
                 self.view.endEditing(true)
             }
-            print("alarm: \(alarm), text: \(text), now: \(nowDate)")
         }
+        
+        self.timePicker.alpha = 0
+        self.alarmButton.setTitle("알람", for: .normal)
         self.tableView.reloadData()
     }
     

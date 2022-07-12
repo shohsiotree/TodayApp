@@ -30,7 +30,6 @@
 		E60BB50F2859618700781E84 /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB50E2859618700781E84 /* EditButton.swift */; };
 		E60BB5102859618700781E84 /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB50E2859618700781E84 /* EditButton.swift */; };
 		E60BB5112859618700781E84 /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60BB50E2859618700781E84 /* EditButton.swift */; };
-		E6263281285C51D200B1AFEF /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6263280285C51D200B1AFEF /* DateCell.swift */; };
 		E6263283285C51FA00B1AFEF /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6263282285C51FA00B1AFEF /* TodoCell.swift */; };
 		E6263285285C520300B1AFEF /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6263284285C520300B1AFEF /* EmptyCell.swift */; };
 		E6263288285C536800B1AFEF /* TodoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6263287285C536800B1AFEF /* TodoDataModel.swift */; };
@@ -45,6 +44,8 @@
 		E68382C62875126D0053048D /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68382C52875126D0053048D /* SettingCell.swift */; };
 		E6A00623286A949F007F2C14 /* basicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A00622286A949F007F2C14 /* basicCell.swift */; };
 		E6A00625286ACB75007F2C14 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A00624286ACB75007F2C14 /* Dummy.swift */; };
+		E6C03681287D3C280072F9AC /* MainTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C0367F287D3C280072F9AC /* MainTableCell.swift */; };
+		E6C03682287D3C280072F9AC /* MainTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C03680287D3C280072F9AC /* MainTableCell.xib */; };
 		E6C3F4A528600053000497AE /* ChangeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4A428600053000497AE /* ChangeFont.swift */; };
 		E6C3F4A72860082D000497AE /* ChangeFormmater.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4A62860082D000497AE /* ChangeFormmater.swift */; };
 		E6C3F4A9286035FB000497AE /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4A8286035FB000497AE /* TitleCell.swift */; };
@@ -98,7 +99,6 @@
 		E60BB50728595C6800781E84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E60BB50B28595E9A00781E84 /* LeeSeoyun.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeeSeoyun.otf; sourceTree = "<group>"; };
 		E60BB50E2859618700781E84 /* EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButton.swift; sourceTree = "<group>"; };
-		E6263280285C51D200B1AFEF /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		E6263282285C51FA00B1AFEF /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		E6263284285C520300B1AFEF /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
 		E6263287285C536800B1AFEF /* TodoDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDataModel.swift; sourceTree = "<group>"; };
@@ -113,6 +113,8 @@
 		E68382C52875126D0053048D /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		E6A00622286A949F007F2C14 /* basicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = basicCell.swift; sourceTree = "<group>"; };
 		E6A00624286ACB75007F2C14 /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Dummy.swift; path = ../../../Dummy.swift; sourceTree = "<group>"; };
+		E6C0367F287D3C280072F9AC /* MainTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableCell.swift; sourceTree = "<group>"; };
+		E6C03680287D3C280072F9AC /* MainTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableCell.xib; sourceTree = "<group>"; };
 		E6C3F4A428600053000497AE /* ChangeFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFont.swift; sourceTree = "<group>"; };
 		E6C3F4A62860082D000497AE /* ChangeFormmater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFormmater.swift; sourceTree = "<group>"; };
 		E6C3F4A8286035FB000497AE /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TitleCell.swift; path = ../../../TitleCell.swift; sourceTree = "<group>"; };
@@ -298,12 +300,13 @@
 		E6263286285C520800B1AFEF /* MainCell */ = {
 			isa = PBXGroup;
 			children = (
-				E6263280285C51D200B1AFEF /* DateCell.swift */,
 				E6263284285C520300B1AFEF /* EmptyCell.swift */,
 				E6263282285C51FA00B1AFEF /* TodoCell.swift */,
 				E6C3F4A8286035FB000497AE /* TitleCell.swift */,
 				E6A00622286A949F007F2C14 /* basicCell.swift */,
 				E68382C52875126D0053048D /* SettingCell.swift */,
+				E6C0367F287D3C280072F9AC /* MainTableCell.swift */,
+				E6C03680287D3C280072F9AC /* MainTableCell.xib */,
 			);
 			name = MainCell;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E60BB4CC2858837300781E84 /* LaunchScreen.storyboard in Resources */,
+				E6C03682287D3C280072F9AC /* MainTableCell.xib in Resources */,
 				E60BB50828595C6800781E84 /* GoogleService-Info.plist in Resources */,
 				E60BB50C28595EA200781E84 /* LeeSeoyun.otf in Resources */,
 				E60BB4C92858837300781E84 /* Assets.xcassets in Resources */,
@@ -587,9 +591,9 @@
 				E639803A285B192100347E87 /* CheckVaild.swift in Sources */,
 				E6C3F4A9286035FB000497AE /* TitleCell.swift in Sources */,
 				E60BB50F2859618700781E84 /* EditButton.swift in Sources */,
+				E6C03681287D3C280072F9AC /* MainTableCell.swift in Sources */,
 				E60BB4FE285955F200781E84 /* SettingVC.swift in Sources */,
 				E60BB4F02858855A00781E84 /* SignInVC.swift in Sources */,
-				E6263281285C51D200B1AFEF /* DateCell.swift in Sources */,
 				E626328A285C53F800B1AFEF /* TodoDataViewModel.swift in Sources */,
 				E6C3F4A528600053000497AE /* ChangeFont.swift in Sources */,
 				E60BB4C42858837000781E84 /* LoginVC.swift in Sources */,
@@ -786,7 +790,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RMKL9668HQ;
+				DEVELOPMENT_TEAM = 8Y7368PHBN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "오늘까지";
@@ -819,7 +823,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RMKL9668HQ;
+				DEVELOPMENT_TEAM = 8Y7368PHBN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "오늘까지";
